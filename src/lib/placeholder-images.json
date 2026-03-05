@@ -1,76 +1,52 @@
 {
   "placeholderImages": [
     {
-      "id": "hero-wellness",
-      "description": "A serene wellness center interior with modern design",
-      "imageUrl": "https://picsum.photos/seed/monde1/1200/600",
-      "imageHint": "wellness interior"
+      "id": "luxury-logo",
+      "description": "Logo Monde de Transformation en or sur fond noir",
+      "imageUrl": "https://picsum.photos/seed/logo-gold/600/600",
+      "imageHint": "gold logo"
     },
     {
-      "id": "beauty-hair",
-      "description": "Luxurious hair salon service",
-      "imageUrl": "https://picsum.photos/seed/hair1/600/600",
-      "imageHint": "hair salon"
+      "id": "beauty-hair-long",
+      "description": "Coiffure de luxe cheveux longs",
+      "imageUrl": "https://picsum.photos/seed/hair-long/600/800",
+      "imageHint": "luxury hair"
     },
     {
-      "id": "beauty-nails",
-      "description": "Elegant manicure and nail art",
-      "imageUrl": "https://picsum.photos/seed/nails1/600/600",
-      "imageHint": "manicure nails"
+      "id": "fitness-coach",
+      "description": "Coach personnel dans une salle privée",
+      "imageUrl": "https://picsum.photos/seed/coach1/800/600",
+      "imageHint": "fitness coach"
     },
     {
-      "id": "beauty-makeup",
-      "description": "Professional makeup session",
-      "imageUrl": "https://picsum.photos/seed/makeup1/600/600",
-      "imageHint": "makeup professional"
+      "id": "nutrition-gourmet",
+      "description": "Plat gastronomique équilibré",
+      "imageUrl": "https://picsum.photos/seed/gourmet1/800/600",
+      "imageHint": "gourmet healthy"
     },
     {
-      "id": "beauty-face",
-      "description": "High-end facial and body treatment",
-      "imageUrl": "https://picsum.photos/seed/face1/600/600",
-      "imageHint": "facial spa"
+      "id": "shopping-fashion",
+      "description": "Robes de haute couture sur mannequin",
+      "imageUrl": "https://picsum.photos/seed/fashion1/600/800",
+      "imageHint": "fashion luxury"
     },
     {
-      "id": "beauty-service",
-      "description": "A person receiving a high-end facial treatment",
-      "imageUrl": "https://picsum.photos/seed/monde2/600/400",
-      "imageHint": "facial spa"
+      "id": "shopping-accessories",
+      "description": "Montres et bijoux de luxe",
+      "imageUrl": "https://picsum.photos/seed/jewelry1/600/600",
+      "imageHint": "luxury jewelry"
     },
     {
-      "id": "fitness-session",
-      "description": "A modern gym space with people working out",
-      "imageUrl": "https://picsum.photos/seed/monde3/600/400",
-      "imageHint": "gym fitness"
+      "id": "ai-avatar",
+      "description": "Avatar IA réaliste pour essayage virtuel",
+      "imageUrl": "https://picsum.photos/seed/avatar1/600/800",
+      "imageHint": "ai avatar"
     },
     {
-      "id": "healthy-meal",
-      "description": "A vibrant and healthy gourmet salad",
-      "imageUrl": "https://picsum.photos/seed/monde4/600/400",
-      "imageHint": "healthy food"
-    },
-    {
-      "id": "coaching-meditation",
-      "description": "Someone meditating in a peaceful garden",
-      "imageUrl": "https://picsum.photos/seed/monde5/600/400",
-      "imageHint": "meditation peace"
-    },
-    {
-      "id": "yoga-stretch",
-      "description": "A person doing yoga stretches at sunset",
-      "imageUrl": "https://picsum.photos/seed/monde6/600/400",
-      "imageHint": "yoga sunset"
-    },
-    {
-      "id": "hiit-workout",
-      "description": "Intense interval training session",
-      "imageUrl": "https://picsum.photos/seed/monde7/600/400",
-      "imageHint": "hiit training"
-    },
-    {
-      "id": "spa-relax",
-      "description": "Relaxing spa environment with candles",
-      "imageUrl": "https://picsum.photos/seed/monde8/600/400",
-      "imageHint": "spa relaxation"
+      "id": "tracking-evolution",
+      "description": "Graphique de progression fitness élégant",
+      "imageUrl": "https://picsum.photos/seed/tracking1/800/400",
+      "imageHint": "data chart"
     }
   ]
 }
