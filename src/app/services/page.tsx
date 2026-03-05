@@ -1,4 +1,3 @@
-
 'use client';
 
 import { Navbar } from '@/components/layout/Navbar';
@@ -54,6 +53,8 @@ const UNIVERSES = [
 ];
 
 export default function ServicesUniversePage() {
+  const defaultImg = "https://picsum.photos/seed/services/800/1000";
+
   return (
     <div className="min-h-screen pb-32 md:pb-0 md:pt-28 bg-[#050505] text-white">
       <Navbar />
@@ -67,15 +68,14 @@ export default function ServicesUniversePage() {
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-          {UNIVERSES.map((universe, idx) => (
+          {UNIVERSES.map((universe) => (
             <Link key={universe.id} href={universe.href}>
               <Card className="group relative aspect-[3/4] rounded-[3.5rem] overflow-hidden border border-white/5 bg-zinc-900/20 hover:border-primary/50 transition-all duration-[1200ms] shadow-3xl">
                 <Image 
-                  src={PlaceHolderImages.find(p => p.id === universe.img)?.imageUrl || `https://picsum.photos/seed/${universe.id}/600/800`} 
+                  src={PlaceHolderImages.find(p => p.id === universe.img)?.imageUrl || defaultImg} 
                   alt={universe.title} 
                   fill 
                   className="object-cover grayscale group-hover:grayscale-0 transition-all duration-[3000ms] group-hover:scale-110 opacity-50 group-hover:opacity-100" 
-                  data-ai-hint="luxury service"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent p-16 flex flex-col justify-end gap-10">
                   <div className="text-primary p-6 bg-zinc-900/80 w-fit rounded-3xl group-hover:bg-primary group-hover:text-black transition-all duration-1000 shadow-2xl">

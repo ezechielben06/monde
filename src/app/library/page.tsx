@@ -1,9 +1,9 @@
 import { Navbar } from '@/components/layout/Navbar';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Search, PlayCircle, FileText, ChevronRight, Book, Video, Star, Clock, Eye, Download } from 'lucide-react';
+import { Search, PlayCircle, FileText, ChevronRight, Book, Video, Clock, Eye, Download } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -11,28 +11,25 @@ const RESOURCES = [
   { id: 1, title: "L'Art de la Routine Matinale", category: "Mindfulness", type: "article", img: "coaching-meditation", duration: "8 min", views: "1.2k", author: "Dr. Elena" },
   { id: 2, title: "Nutrition Cellulaire : Les Fondements", category: "Nutrition", type: "article", img: "healthy-meal", duration: "12 min", views: "3.4k", author: "Marc Leroy" },
   { id: 3, title: "Yoga Flow : Alignement & Éveil", category: "Fitness", type: "video", img: "fitness-session", duration: "35 min", views: "850", author: "Sarah B." },
-  { id: 4, title: "Secrets de Peau : Anti-Âge Global", category: "Beauté", type: "article", img: "beauty-service", duration: "10 min", views: "2.1k", author: "Julie V." },
+  { id: 4, title: "Secrets de Peau : Anti-Âge Global", category: "Beauté", type: "article", img: "beauty-face", duration: "10 min", views: "2.1k", author: "Julie V." },
   { id: 5, title: "Méditation Transcendantale", category: "Mindfulness", type: "video", img: "coaching-meditation", duration: "20 min", views: "1.5k", author: "Maître Zen" },
   { id: 6, title: "Masterclass HIIT Performance", category: "Fitness", type: "video", img: "fitness-session", duration: "45 min", views: "4.2k", author: "Jean-Pierre" },
-  { id: 7, title: "La Science du Sommeil Profond", category: "Mindfulness", type: "article", img: "spa-relax", duration: "15 min", views: "2.8k", author: "Dr. Thomas" },
+  { id: 7, title: "La Science du Sommeil Profond", category: "Mindfulness", type: "article", img: "beauty-face", duration: "15 min", views: "2.8k", author: "Dr. Thomas" },
   { id: 8, title: "Recettes Détox Gastronomiques", category: "Nutrition", type: "article", img: "healthy-meal", duration: "14 min", views: "1.9k", author: "Chef Amara" },
-  { id: 9, title: "Postures & Mobilité Pro", category: "Fitness", type: "video", img: "yoga-stretch", duration: "30 min", views: "900", author: "Lucie P." },
-  { id: 10, title: "Gérer le Stress au Sommet", category: "Mindfulness", type: "article", img: "coaching-meditation", duration: "18 min", views: "4.5k", author: "Dr. Elena" },
-  { id: 11, title: "Superfoods et Bio-Hacking", category: "Nutrition", type: "video", img: "healthy-meal", duration: "25 min", views: "6.1k", author: "Marc Leroy" },
-  { id: 12, title: "Protocole Éclat Instantané", category: "Beauté", type: "video", img: "beauty-face", duration: "10 min", views: "3.2k", author: "Julie V." },
 ];
 
 export default function LibraryPage() {
+  const defaultImg = "https://picsum.photos/seed/library/800/600";
+
   return (
     <div className="min-h-screen pb-32 md:pb-0 md:pt-28 bg-[#050505] text-white">
       <Navbar />
       
       <main className="max-w-7xl mx-auto px-8 md:px-12 py-16 space-y-24">
-        {/* Header Section */}
         <header className="flex flex-col md:flex-row md:items-end justify-between gap-12 soft-reveal">
           <div className="space-y-8">
-            <Badge className="bg-primary/10 text-primary border-primary/30 px-8 py-2 rounded-full uppercase text-[10px] tracking-[0.5em] font-bold">Bibliothèque du Savoir</Badge>
-            <h1 className="text-7xl md:text-9xl font-headline font-bold tracking-tighter leading-[0.85]">Cercle de <br/><span className="luxury-gold-gradient">Connaissance</span>.</h1>
+            <Badge variant="outline" className="border-primary/40 text-primary px-8 py-2 rounded-full uppercase text-[10px] tracking-[0.5em] font-bold">Bibliothèque du Savoir</Badge>
+            <h1 className="text-7xl md:text-9xl font-serif luxury-gold-gradient tracking-tighter leading-[0.85]">Cercle de <br/><span className="luxury-gold-gradient">Connaissance</span>.</h1>
             <p className="text-xl text-zinc-500 max-w-2xl font-light italic leading-relaxed">Accédez à l'expertise mondiale en bien-être, nutrition et performance.</p>
           </div>
           <div className="relative w-full md:w-[450px] group">
@@ -41,25 +38,12 @@ export default function LibraryPage() {
           </div>
         </header>
 
-        {/* Categories Bar */}
-        <div className="flex flex-wrap gap-6 soft-reveal">
-          {["Tout", "Fitness", "Nutrition", "Mindfulness", "Beauté", "Masterclass"].map((cat) => (
-            <button 
-              key={cat} 
-              className={`rounded-full px-10 py-4 font-bold uppercase text-[10px] tracking-[0.4em] transition-all duration-500 border ${cat === "Tout" ? "bg-primary text-black border-primary" : "border-zinc-800 text-zinc-600 hover:border-primary/40 hover:text-white bg-zinc-900/20"}`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Resources Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 soft-reveal">
           {RESOURCES.map((res) => (
             <Card key={res.id} className="overflow-hidden border-white/5 bg-zinc-900/20 hover:border-primary/40 transition-all cursor-pointer group rounded-3xl shadow-xl hover:shadow-primary/5">
               <div className="relative h-64 overflow-hidden">
                 <Image 
-                  src={PlaceHolderImages.find(p => p.id === res.img)?.imageUrl || ""}
+                  src={PlaceHolderImages.find(p => p.id === res.img)?.imageUrl || defaultImg}
                   alt={res.title}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-[4000ms] grayscale group-hover:grayscale-0 opacity-50 group-hover:opacity-100"
@@ -97,16 +81,6 @@ export default function LibraryPage() {
             </Card>
           ))}
         </div>
-
-        {/* Personalized Recommendation Footer */}
-        <section className="pt-24 border-t border-white/5 flex flex-col items-center text-center space-y-12 soft-reveal">
-          <div className="space-y-6 max-w-3xl">
-             <Badge className="bg-primary/10 text-primary border-none px-8 py-2 rounded-full font-bold uppercase text-[10px] tracking-[0.5em]">Curie Exclusive</Badge>
-            <h3 className="text-4xl md:text-5xl font-headline font-bold uppercase leading-tight">Besoin d'un parcours sur mesure ?</h3>
-            <p className="text-zinc-500 font-light italic text-xl leading-relaxed">Nos curateurs de contenu peuvent assembler pour vous une liste de ressources personnalisée en fonction de votre profil génétique et de vos ambitions.</p>
-          </div>
-          <Button size="lg" className="rounded-full px-20 bg-primary text-black font-bold uppercase tracking-widest shadow-2xl hover:scale-105 transition-all">Demander ma Curie Personnalisée</Button>
-        </section>
       </main>
     </div>
   );
