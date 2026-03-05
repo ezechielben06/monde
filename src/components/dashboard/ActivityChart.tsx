@@ -24,14 +24,14 @@ export function ActivityChart() {
 
   if (!mounted) {
     return (
-      <Card className="border-none shadow-sm rounded-[2rem] overflow-hidden bg-white">
-        <CardHeader className="flex flex-row items-center justify-between">
-          <div>
-            <CardTitle className="text-2xl font-headline">Activité Hebdomadaire</CardTitle>
-            <CardDescription>Chargement des données...</CardDescription>
+      <Card className="border border-white/5 bg-zinc-900/20 rounded-[2.5rem] overflow-hidden backdrop-blur-xl">
+        <CardHeader className="flex flex-row items-center justify-between p-10 pb-4">
+          <div className="space-y-1">
+            <CardTitle className="text-3xl font-headline font-bold uppercase tracking-tight">Activité Hebdomadaire</CardTitle>
+            <CardDescription className="text-zinc-500">Chargement de votre performance...</CardDescription>
           </div>
         </CardHeader>
-        <CardContent className="h-[300px] flex items-center justify-center">
+        <CardContent className="h-[300px] flex items-center justify-center p-10">
           <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
         </CardContent>
       </Card>
@@ -39,34 +39,60 @@ export function ActivityChart() {
   }
 
   return (
-    <Card className="border-none shadow-sm rounded-[2rem] overflow-hidden bg-white">
-      <CardHeader className="flex flex-row items-center justify-between">
-        <div>
-          <CardTitle className="text-2xl font-headline">Activité Hebdomadaire</CardTitle>
-          <CardDescription>Minutes d'activité vs Temps de repos</CardDescription>
+    <Card className="border border-white/5 bg-zinc-900/20 rounded-[2.5rem] overflow-hidden backdrop-blur-xl shadow-2xl group hover:border-primary/20 transition-all duration-700">
+      <CardHeader className="flex flex-row items-center justify-between p-10 pb-6 border-b border-white/5">
+        <div className="space-y-1">
+          <CardTitle className="text-3xl font-headline font-bold uppercase tracking-tight">Activité Hebdomadaire</CardTitle>
+          <CardDescription className="text-zinc-500 font-medium italic">Analyse de votre vitalité prestige</CardDescription>
         </div>
-        <div className="flex gap-2">
-          <Badge variant="outline" className="flex items-center gap-1"><div className="w-2 h-2 rounded-full bg-primary" /> Actif</Badge>
-          <Badge variant="outline" className="flex items-center gap-1"><div className="w-2 h-2 rounded-full bg-accent" /> Repos</Badge>
+        <div className="flex gap-4">
+          <Badge variant="outline" className="flex items-center gap-2 border-zinc-800 text-zinc-400 bg-zinc-900/50 px-4 py-1.5 rounded-full">
+            <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(212,175,55,0.5)]" /> 
+            <span className="text-[10px] font-bold uppercase tracking-widest">Actif</span>
+          </Badge>
+          <Badge variant="outline" className="flex items-center gap-2 border-zinc-800 text-zinc-400 bg-zinc-900/50 px-4 py-1.5 rounded-full">
+            <div className="w-2 h-2 rounded-full bg-zinc-700" /> 
+            <span className="text-[10px] font-bold uppercase tracking-widest">Repos</span>
+          </Badge>
         </div>
       </CardHeader>
-      <CardContent className="h-[300px] mt-4">
+      <CardContent className="h-[300px] p-10 pt-8">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
+            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.05)" />
             <XAxis 
               dataKey="day" 
               axisLine={false} 
               tickLine={false} 
-              tick={{ fill: '#888', fontSize: 12 }} 
+              tick={{ fill: '#52525b', fontSize: 11, fontWeight: 700 }} 
+              dy={10}
             />
             <YAxis hide />
             <Tooltip 
-              cursor={{ fill: 'transparent' }}
-              contentStyle={{ borderRadius: '1rem', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
+              cursor={{ fill: 'rgba(212, 175, 55, 0.05)' }}
+              contentStyle={{ 
+                backgroundColor: '#0a0a0a', 
+                border: '1px solid rgba(212, 175, 55, 0.2)', 
+                borderRadius: '1.5rem', 
+                boxShadow: '0 20px 40px rgba(0,0,0,0.8)',
+                padding: '12px 20px'
+              }}
+              itemStyle={{ color: '#d4af37', fontWeight: 'bold', fontSize: '12px' }}
+              labelStyle={{ color: '#fff', marginBottom: '4px', fontWeight: 'bold', letterSpacing: '0.1em' }}
             />
-            <Bar dataKey="active" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
-            <Bar dataKey="rest" fill="hsl(var(--accent))" radius={[4, 4, 0, 0]} />
+            <Bar 
+              dataKey="active" 
+              fill="hsl(var(--primary))" 
+              radius={[6, 6, 0, 0]} 
+              barSize={24}
+              className="drop-shadow-[0_0_8px_rgba(212,175,55,0.3)]"
+            />
+            <Bar 
+              dataKey="rest" 
+              fill="#27272a" 
+              radius={[6, 6, 0, 0]} 
+              barSize={24} 
+            />
           </BarChart>
         </ResponsiveContainer>
       </CardContent>
