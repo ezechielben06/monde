@@ -19,7 +19,7 @@ export default function Home() {
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
         {/* Header / Hero */}
-        <div className="relative h-56 md:h-72 rounded-[2.5rem] overflow-hidden group shadow-2xl">
+        <div className="relative h-64 md:h-80 rounded-[2.5rem] overflow-hidden group shadow-2xl">
           {heroImage && (
             <Image 
               src={heroImage.imageUrl}
@@ -29,15 +29,15 @@ export default function Home() {
               priority
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent flex flex-col justify-center px-12 text-white">
-            <Badge className="w-fit mb-4 bg-white/20 backdrop-blur-md border-none text-white hover:bg-white/30">
-              Session Live à 18h00
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent flex flex-col justify-center px-12 text-white">
+            <Badge className="w-fit mb-4 bg-primary/40 backdrop-blur-md border-none text-white hover:bg-primary/50 py-1 px-4">
+              Session Live B-right à 18h00
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-headline font-bold">Bonjour, Bright 👋</h1>
-            <p className="mt-3 text-white/80 font-medium max-w-md text-lg">Votre transformation progresse. Vous avez atteint 85% de vos objectifs cette semaine !</p>
-            <div className="mt-6 flex gap-3">
-              <Button className="rounded-full px-8 bg-white text-primary hover:bg-white/90 font-bold">Continuer</Button>
-              <Button variant="outline" className="rounded-full px-8 border-white text-white hover:bg-white/10 font-bold">Mon Bilan</Button>
+            <h1 className="text-5xl md:text-7xl font-headline font-bold tracking-tighter">Salut, Bright 👋</h1>
+            <p className="mt-3 text-white/80 font-medium max-w-md text-xl">Ta transformation B-right progresse. Tu as atteint 85% de tes objectifs cette semaine !</p>
+            <div className="mt-8 flex gap-4">
+              <Button className="rounded-2xl px-10 py-6 bg-white text-primary hover:bg-primary hover:text-white transition-all font-bold text-lg shadow-xl">Continuer</Button>
+              <Button variant="outline" className="rounded-2xl px-10 py-6 border-white/40 text-white backdrop-blur-md hover:bg-white/10 font-bold text-lg">Mon Bilan</Button>
             </div>
           </div>
         </div>
@@ -86,10 +86,10 @@ export default function Home() {
 
             <Card className="border-none shadow-sm rounded-[2rem] overflow-hidden bg-white">
               <CardHeader className="flex flex-row items-center justify-between">
-                <CardTitle className="text-2xl font-headline">Planning du Jour</CardTitle>
-                <Link href="/calendar">
+                <CardTitle className="text-2xl font-headline">Planning B-right</CardTitle>
+                <Link href="/booking">
                   <Button variant="ghost" size="sm" className="text-primary gap-2 hover:bg-primary/5">
-                    Voir tout <ArrowRight size={16} />
+                    Gérer <ArrowRight size={16} />
                   </Button>
                 </Link>
               </CardHeader>
@@ -124,7 +124,7 @@ export default function Home() {
                 <div className="absolute top-0 right-0 p-6 opacity-10">
                   <Zap size={140} />
                 </div>
-                <h3 className="text-3xl font-headline font-bold leading-tight">Défi Quotidien</h3>
+                <h3 className="text-3xl font-headline font-bold leading-tight">Défi B-right</h3>
                 <p className="text-white/80 text-lg">Buvez 2L d'eau aujourd'hui pour gagner 50 points d'expérience !</p>
                 <div className="pt-4 space-y-4">
                   <div className="flex justify-between text-sm font-bold">
@@ -134,7 +134,7 @@ export default function Home() {
                   <div className="h-3 bg-white/20 rounded-full overflow-hidden">
                     <div className="h-full bg-white w-[60%] rounded-full shadow-sm" />
                   </div>
-                  <Button className="w-full bg-white text-primary hover:bg-white/90 rounded-2xl font-bold py-6">
+                  <Button className="w-full bg-white text-primary hover:bg-white/90 rounded-2xl font-bold py-6 shadow-xl transition-transform hover:-translate-y-1">
                     Mettre à jour
                   </Button>
                 </div>
@@ -143,7 +143,7 @@ export default function Home() {
 
             <Card className="border-none shadow-sm rounded-[2rem] bg-white">
               <CardHeader>
-                <CardTitle className="text-xl font-headline">Communauté Active</CardTitle>
+                <CardTitle className="text-xl font-headline">Cercle B-right</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {[
@@ -164,7 +164,7 @@ export default function Home() {
                     </div>
                   </div>
                 ))}
-                <Button variant="outline" className="w-full rounded-2xl border-slate-100 text-muted-foreground hover:bg-slate-50">
+                <Button variant="outline" className="w-full rounded-2xl border-slate-100 text-muted-foreground hover:bg-slate-50 transition-colors">
                   Explorer le feed
                 </Button>
               </CardContent>

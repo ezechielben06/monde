@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Sparkles, Dumbbell, Brain, Clock, Star, MapPin, ShieldCheck, Heart } from 'lucide-react';
+import { Sparkles, Dumbbell, Brain, Clock, Star, MapPin, ShieldCheck, Heart, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -19,7 +19,7 @@ const SERVICES = {
     { id: 'f3', title: "Yoga Vinyasa", price: "7,000 FCFA", duration: "75 min", rating: 4.8, img: "yoga-stretch", desc: "Fluidité et respiration pour un corps plus souple." },
   ],
   coaching: [
-    { id: 'c1', title: "Bilan Transformation", price: "Gratuit", duration: "30 min", rating: 4.9, img: "coaching-meditation", desc: "Analysez vos besoins avec un expert MondeTransfo." },
+    { id: 'c1', title: "Bilan Transformation", price: "Gratuit", duration: "30 min", rating: 4.9, img: "coaching-meditation", desc: "Analysez vos besoins avec un expert B-right." },
     { id: 'c2', title: "Nutrition Personnalisée", price: "15,000 FCFA", duration: "45 min", rating: 4.7, img: "healthy-meal", desc: "Optimisez votre alimentation pour des résultats durables." },
   ]
 };
@@ -33,7 +33,7 @@ export default function BookingPage() {
         <header className="space-y-4 max-w-3xl">
           <Badge className="bg-accent/10 text-accent border-none font-bold">RÉSERVATIONS</Badge>
           <h1 className="text-6xl font-headline font-bold text-slate-900 tracking-tighter">Votre moment.<br/><span className="text-primary">À votre rythme.</span></h1>
-          <p className="text-xl text-muted-foreground">Sélectionnez le service qui correspond à votre étape actuelle de transformation. Nos experts vous attendent.</p>
+          <p className="text-xl text-muted-foreground">Sélectionnez le service qui correspond à votre étape actuelle de transformation. Nos experts vous attendent au centre B-right.</p>
         </header>
 
         {/* Trending Section */}
@@ -122,7 +122,7 @@ export default function BookingPage() {
                         </div>
                       </div>
                       <div className="flex items-center gap-2 pt-2">
-                        <Badge variant="outline" className="rounded-full border-slate-100 flex items-center gap-1 text-[10px]"><ShieldCheck size={12} className="text-emerald-500"/> Certifié MondeTransfo</Badge>
+                        <Badge variant="outline" className="rounded-full border-slate-100 flex items-center gap-1 text-[10px]"><ShieldCheck size={12} className="text-emerald-500"/> Certifié B-right</Badge>
                         <Badge variant="outline" className="rounded-full border-slate-100 flex items-center gap-1 text-[10px]"><Heart size={12} className="text-rose-500"/> Inclus Premium</Badge>
                       </div>
                     </CardContent>
@@ -143,7 +143,7 @@ export default function BookingPage() {
               <MapPin size={32} />
             </div>
             <div>
-              <h3 className="text-2xl font-bold font-headline">Centre MondeTransfo</h3>
+              <h3 className="text-2xl font-bold font-headline">Centre B-right</h3>
               <p className="text-muted-foreground font-medium">Cotonou, Quartier Haie Vive, Rue 241</p>
             </div>
           </div>

@@ -2,8 +2,8 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'MondeTransfo | Centre de Bien-être Global Digitalisé',
-  description: 'Transformation physique, mentale et sociale à Cotonou.',
+  title: 'B-right | Votre Transformation, Votre Rythme',
+  description: 'Plateforme de bien-être global : fitness, beauté, coaching et nutrition.',
 };
 
 export default function RootLayout({
