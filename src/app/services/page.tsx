@@ -4,6 +4,7 @@
 import { Navbar } from '@/components/layout/Navbar';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { Sparkles, Dumbbell, Utensils, ShoppingBag, Brain, ArrowRight, Gem } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -74,6 +75,7 @@ export default function ServicesUniversePage() {
                   alt={universe.title} 
                   fill 
                   className="object-cover grayscale group-hover:grayscale-0 transition-all duration-[3000ms] group-hover:scale-110 opacity-50 group-hover:opacity-100" 
+                  data-ai-hint="luxury service"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent p-16 flex flex-col justify-end gap-10">
                   <div className="text-primary p-6 bg-zinc-900/80 w-fit rounded-3xl group-hover:bg-primary group-hover:text-black transition-all duration-1000 shadow-2xl">

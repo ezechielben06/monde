@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Crown, Globe, Banknote, Sparkles, Activity, ShieldCheck, Heart, User, ArrowRight } from 'lucide-react';
+import { Crown, Globe, Banknote, Sparkles, Activity, ShieldCheck, Heart, User, ArrowRight, Star, Gem } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -110,6 +110,7 @@ export default function OnboardingPage() {
           </p>
         </header>
 
+        {/* Core Sections */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-20">
           <Link href="/services" className="group">
             <div className="relative aspect-[4/5] rounded-[3.5rem] overflow-hidden border border-white/5 transition-all duration-1000 group-hover:border-primary/50 shadow-3xl">
@@ -118,6 +119,7 @@ export default function OnboardingPage() {
                 alt="Univers des Services" 
                 fill 
                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-[3000ms] group-hover:scale-105 opacity-50 group-hover:opacity-100" 
+                data-ai-hint="luxury service"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent p-16 flex flex-col justify-end gap-8">
                 <Sparkles size={60} className="text-primary animate-pulse" />
@@ -139,6 +141,7 @@ export default function OnboardingPage() {
                 alt="Mon Suivi de Transformation" 
                 fill 
                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-[3000ms] group-hover:scale-105 opacity-50 group-hover:opacity-100" 
+                data-ai-hint="data analysis"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent p-16 flex flex-col justify-end gap-8">
                 <Activity size={60} className="text-primary animate-pulse" />
@@ -154,6 +157,41 @@ export default function OnboardingPage() {
           </Link>
         </section>
 
+        {/* Pricing Sections: Les Cercles d'Excellence */}
+        <section className="space-y-24">
+          <div className="text-center space-y-6">
+            <h2 className="text-6xl md:text-8xl font-serif luxury-gold-gradient font-bold leading-tight">Les Cercles <br/> d'Excellence.</h2>
+            <p className="text-zinc-500 text-xl font-light italic">Choisissez votre palier d'immersion dans le luxe absolu.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {[
+              { title: "Cercle Éclat", price: "25k FCFA", period: "mois", features: ["Accès salle VIP", "1 Coaching privé/mois", "Analyse corporelle IA", "Privilèges Shopping"], badge: "Essentiel" },
+              { title: "Cercle Impérial", price: "55k FCFA", period: "mois", features: ["Accès illimité 24/7", "4 Coachings privés/mois", "Menu Nutrition sur mesure", "Conciergerie Beauté", "Miroir Virtuel IA"], badge: "Populaire", featured: true },
+              { title: "Cercle Diamond", price: "150k FCFA", period: "mois", features: ["Accès total Prestige", "Coaching quotidien privé", "Chef à domicile (2/sem)", "Soins Beauté illimités", "Essayage VIP Prioritaire"], badge: "Élite" }
+            ].map((tier, i) => (
+              <div key={i} className={`relative p-16 rounded-[3.5rem] border ${tier.featured ? 'border-primary bg-primary/5' : 'border-white/5 bg-zinc-900/20'} space-y-12 transition-all hover:scale-105 duration-1000 shadow-3xl`}>
+                <div className="space-y-4">
+                  <Badge className="bg-primary text-black font-bold uppercase text-[9px] tracking-widest">{tier.badge}</Badge>
+                  <h3 className="text-4xl font-serif font-bold">{tier.title}</h3>
+                </div>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-6xl font-bold luxury-gold-gradient">{tier.price}</span>
+                  <span className="text-zinc-600 font-bold uppercase text-xs">/{tier.period}</span>
+                </div>
+                <ul className="space-y-6">
+                  {tier.features.map((feat, idx) => (
+                    <li key={idx} className="flex items-center gap-4 text-zinc-400 text-sm italic font-light">
+                      <Star size={14} className="text-primary/60" /> {feat}
+                    </li>
+                  ))}
+                </ul>
+                <Button className={`w-full h-20 rounded-full font-bold uppercase tracking-widest ${tier.featured ? 'bg-primary text-black' : 'bg-white text-black'}`}>Rejoindre</Button>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Heritage Section */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-24 pt-40 border-t border-white/5">
           {[
             { title: "Confidentialité Diamond", icon: <ShieldCheck size={50} />, desc: "Vos données et votre parcours sont protégés par les protocoles de sécurité les plus stricts au monde." },
@@ -169,6 +207,7 @@ export default function OnboardingPage() {
         </section>
       </main>
       <footer className="py-24 text-center border-t border-white/5 opacity-40">
+        <Gem className="text-primary mx-auto mb-8 animate-pulse" size={32} />
         <p className="text-[10px] font-bold uppercase tracking-[0.8em] text-zinc-600">© 2024 Monde de Transformation • L'Héritage de l'Excellence</p>
       </footer>
     </div>
