@@ -29,6 +29,24 @@
       "description": "Someone meditating in a peaceful garden",
       "imageUrl": "https://picsum.photos/seed/monde5/600/400",
       "imageHint": "meditation peace"
+    },
+    {
+      "id": "yoga-stretch",
+      "description": "A person doing yoga stretches at sunset",
+      "imageUrl": "https://picsum.photos/seed/monde6/600/400",
+      "imageHint": "yoga sunset"
+    },
+    {
+      "id": "hiit-workout",
+      "description": "Intense interval training session",
+      "imageUrl": "https://picsum.photos/seed/monde7/600/400",
+      "imageHint": "hiit training"
+    },
+    {
+      "id": "spa-relax",
+      "description": "Relaxing spa environment with candles",
+      "imageUrl": "https://picsum.photos/seed/monde8/600/400",
+      "imageHint": "spa relaxation"
     }
   ]
 }
