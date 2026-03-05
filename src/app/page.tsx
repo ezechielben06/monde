@@ -3,7 +3,7 @@ import { StatCard } from '@/components/dashboard/StatCard';
 import { AIRecommender } from '@/components/dashboard/AIRecommender';
 import { ActivityChart } from '@/components/dashboard/ActivityChart';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/components/ui/card';
-import { Flame, Heart, Trophy, Zap, Star, Crown, ShieldCheck, ArrowRight, Calendar, Sparkles, Check, Gem } from 'lucide-react';
+import { Flame, Heart, Trophy, Zap, Star, Crown, ShieldCheck, ArrowRight, Calendar, Sparkles, Check, Gem, Users, Quote, Fingerprint } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
@@ -60,6 +60,12 @@ const PRICING_PLANS = [
   }
 ];
 
+const TESTIMONIALS = [
+  { name: "Alexandra V.", role: "CEO & Philanthrope", content: "B-right a transformé ma vision du bien-être. Ce n'est plus une contrainte, c'est un art de vivre.", seed: "v1" },
+  { name: "Julien M.", role: "Athlète de haut niveau", content: "L'accompagnement IA et humain est d'une précision chirurgicale. Mes performances ont doublé en 6 mois.", seed: "v2" },
+  { name: "Elena R.", role: "Artiste Designer", content: "L'esthétique du lieu et la qualité des soins sont inégalées. Un sanctuaire de sérénité.", seed: "v3" }
+];
+
 export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-wellness');
 
@@ -68,241 +74,170 @@ export default function Home() {
       <Navbar />
       
       <main className="max-w-[1600px] mx-auto container-padding space-y-32">
-        {/* Ultra-Luxury Hero Section */}
-        <section className="relative h-[85vh] rounded-[4rem] overflow-hidden group border border-white/5 soft-reveal">
+        {/* Hero Section Refined */}
+        <section className="relative h-[80vh] rounded-3xl overflow-hidden group border border-white/5 soft-reveal">
           {heroImage && (
             <Image 
               src={heroImage.imageUrl}
               alt={heroImage.description}
               fill
-              className="object-cover opacity-40 group-hover:scale-105 transition-transform duration-[6000ms] ease-out"
+              className="object-cover opacity-40 group-hover:scale-105 transition-transform duration-[8000ms] ease-out"
               priority
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent flex flex-col justify-end p-12 md:p-24 text-white">
-            <div className="max-w-5xl space-y-12">
-              <div className="flex items-center gap-4">
-                <Badge className="bg-primary/10 text-primary border border-primary/20 py-3 px-8 rounded-full text-[12px] font-bold tracking-[0.4em] uppercase backdrop-blur-xl">
-                  B-right Conciergerie Privée
-                </Badge>
-                <div className="h-px w-32 bg-primary/20 hidden md:block" />
-              </div>
-              <h1 className="text-7xl md:text-[10rem] font-headline font-bold leading-[0.85] tracking-tighter luxury-gold-gradient">
-                L'Excellence <br/> Absolue.
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent flex flex-col justify-end p-8 md:p-20 text-white">
+            <div className="max-w-4xl space-y-8">
+              <Badge className="bg-primary/10 text-primary border border-primary/20 py-2 px-6 rounded-full text-[10px] font-bold tracking-[0.4em] uppercase backdrop-blur-xl">
+                L'Excellence à votre portée
+              </Badge>
+              <h1 className="text-6xl md:text-[8rem] font-headline font-bold leading-[0.9] tracking-tighter luxury-gold-gradient">
+                Incarnez <br/> la Perfection.
               </h1>
-              <p className="text-zinc-400 font-light max-w-2xl text-2xl leading-relaxed tracking-wide opacity-80">
-                L'art de la transformation globale. Aujourd'hui, votre indice de vitalité prestige atteint <span className="text-primary font-bold">96%</span>.
+              <p className="text-zinc-400 font-light max-w-xl text-xl leading-relaxed opacity-80">
+                Redéfinissez vos limites avec B-right. Une expérience holistique où la technologie de pointe rencontre le luxe ancestral.
               </p>
-              <div className="flex flex-wrap gap-8 pt-8">
-                <Button className="rounded-full px-16 py-10 bg-primary text-black hover:bg-white hover:scale-105 transition-all duration-700 font-bold text-xl shadow-[0_25px_60px_rgba(212,175,55,0.25)]">
-                  Lancer l'Expérience
+              <div className="flex flex-wrap gap-6 pt-4">
+                <Button className="rounded-full px-12 py-7 bg-primary text-black hover:bg-white transition-all duration-500 font-bold text-lg uppercase tracking-widest shadow-xl h-auto">
+                  Débuter le Voyage
                 </Button>
-                <Button variant="outline" className="rounded-full px-16 py-10 border-white/10 text-white hover:bg-white/10 font-bold text-xl backdrop-blur-xl transition-all duration-700">
-                  Consulter mon Bilan VIP
+                <Button variant="outline" className="rounded-full px-12 py-7 border-white/10 text-white hover:bg-white/10 font-bold text-lg backdrop-blur-xl transition-all h-auto uppercase tracking-widest">
+                  Découvrir nos Cercles
                 </Button>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Exclusive Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 soft-reveal [animation-delay:200ms]">
-          <StatCard 
-            label="Énergie Vitale" 
-            value="2,480" 
-            subValue="Kcal / Niveau Optimal"
-            icon={<Zap className="text-primary" size={28} />}
-            trend={{ value: "18%", isUp: true }}
-          />
-          <StatCard 
-            label="Clarté Cognitive" 
-            value="Elite" 
-            subValue="Zone de Performance"
-            icon={<Sparkles className="text-primary" size={28} />}
-            trend={{ value: "6 pts", isUp: true }}
-          />
-          <StatCard 
-            label="Régénération" 
-            value="8h 12m" 
-            subValue="Sommeil Profond"
-            icon={<Heart className="text-primary" size={28} />}
-            trend={{ value: "45m", isUp: true }}
-          />
-          <StatCard 
-            label="Statut Membre" 
-            value="Diamond" 
-            subValue="Cercle des Initiés"
-            icon={<Crown className="text-primary" size={28} />}
-            trend={{ value: "Top 0.1%", isUp: true }}
-          />
+        {/* Philosophy Section */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center soft-reveal">
+          <div className="space-y-10">
+            <div className="space-y-4">
+              <Badge variant="outline" className="border-primary/30 text-primary px-4 py-1 uppercase text-[10px] tracking-widest">Notre Héritage</Badge>
+              <h2 className="text-5xl font-headline font-bold tracking-tighter leading-tight">La Science du <br/><span className="luxury-gold-gradient">Bien-être Global</span></h2>
+            </div>
+            <p className="text-zinc-400 text-lg font-light leading-relaxed">
+              Chez B-right, nous croyons que la performance n'est pas une destination, mais un état d'équilibre constant. Notre approche repose sur trois piliers fondamentaux : la régénération biologique, la clarté mentale et la force physique.
+            </p>
+            <div className="grid grid-cols-2 gap-8">
+              <div className="space-y-2">
+                <Fingerprint className="text-primary mb-4" size={32} />
+                <h4 className="font-bold uppercase text-sm tracking-widest">Personnalisation</h4>
+                <p className="text-zinc-500 text-sm italic">Chaque protocole est unique, adapté à votre ADN et vos objectifs.</p>
+              </div>
+              <div className="space-y-2">
+                <ShieldCheck className="text-primary mb-4" size={32} />
+                <h4 className="font-bold uppercase text-sm tracking-widest">Confidentialité</h4>
+                <p className="text-zinc-500 text-sm italic">Un sanctuaire sécurisé pour les leaders et visionnaires de ce monde.</p>
+              </div>
+            </div>
+          </div>
+          <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
+             <Image src="https://picsum.photos/seed/philosophy/1200/800" alt="B-right Philosophy" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
+          </div>
+        </section>
+
+        {/* Stats Grid Refined */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 soft-reveal">
+          <StatCard label="Indice Vitalité" value="98%" subValue="Performance Maximale" icon={<Zap className="text-primary" size={24} />} trend={{ value: "12%", isUp: true }} />
+          <StatCard label="Membres Actifs" value="1,240" subValue="Cercle des Initiés" icon={<Users className="text-primary" size={24} />} trend={{ value: "5%", isUp: true }} />
+          <StatCard label="Savoir Partagé" value="450+" subValue="Articles & Vidéos" icon={<Star className="text-primary" size={24} />} trend={{ value: "15", isUp: true }} />
+          <StatCard label="Statut Élite" value="Gold" subValue="Récompense Mensuelle" icon={<Trophy className="text-primary" size={24} />} trend={{ value: "Top 1%", isUp: true }} />
         </div>
 
-        {/* PRICING SECTION: Cercles d'Excellence */}
-        <section className="space-y-24 soft-reveal">
-          <div className="text-center space-y-6 max-w-4xl mx-auto">
-            <Badge variant="outline" className="border-primary/30 text-primary px-8 py-2 rounded-full font-bold tracking-[0.4em] uppercase text-[10px]">Adhésion Exclusive</Badge>
-            <h2 className="text-6xl md:text-8xl font-headline font-bold tracking-tighter">Les Cercles <br/><span className="luxury-gold-gradient">d'Excellence</span></h2>
-            <p className="text-zinc-500 text-xl font-light leading-relaxed">Choisissez le degré d'accompagnement qui sied à votre ambition. Une transformation sans limites vous attend.</p>
+        {/* AI & Analytics Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          <div className="lg:col-span-8 space-y-24">
+            <AIRecommender />
+            <ActivityChart />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+          <div className="lg:col-span-4 space-y-12">
+            <Card className="premium-card p-12 bg-zinc-900/40 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 p-8 opacity-[0.05] group-hover:opacity-10 transition-opacity">
+                <Gem size={200} />
+              </div>
+              <div className="space-y-8 relative z-10">
+                <Badge className="bg-primary text-black font-bold text-[10px] tracking-widest">NOUVEAUTÉ</Badge>
+                <h3 className="text-3xl font-headline font-bold uppercase">Le Rituel de l'Aurore</h3>
+                <p className="text-zinc-400 text-sm leading-relaxed">Découvrez notre nouveau programme de méditation guidée conçu pour booster votre cortisol naturellement dès le réveil.</p>
+                <Button variant="link" className="text-primary font-bold uppercase text-xs p-0 flex items-center gap-2">Découvrir le Rituel <ArrowRight size={14} /></Button>
+              </div>
+            </Card>
+
+            <Card className="premium-card p-12">
+              <h3 className="text-2xl font-headline font-bold mb-8">Dernières Actualités</h3>
+              <div className="space-y-8">
+                {[
+                  { title: "Ouverture du Spa à Cotonou", date: "Jan 20, 2024" },
+                  { title: "Masterclass avec Maître Zen", date: "Fév 05, 2024" },
+                  { title: "Mise à jour de l'IA Elite v2", date: "Mar 12, 2024" }
+                ].map((news, i) => (
+                  <div key={i} className="flex flex-col gap-1 border-b border-white/5 pb-4 last:border-0">
+                    <span className="text-xs text-zinc-600 font-bold uppercase tracking-widest">{news.date}</span>
+                    <h4 className="font-bold hover:text-primary transition-colors cursor-pointer">{news.title}</h4>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          </div>
+        </div>
+
+        {/* Pricing Section */}
+        <section className="space-y-20 soft-reveal">
+          <div className="text-center space-y-4 max-w-3xl mx-auto">
+            <h2 className="text-5xl font-headline font-bold">Choisissez votre <br/><span className="luxury-gold-gradient">Cercle d'Excellence</span></h2>
+            <p className="text-zinc-500 italic text-lg">Un investissement pour votre futur soi. Sans compromis.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {PRICING_PLANS.map((plan, i) => (
-              <Card key={i} className={`relative overflow-hidden transition-all duration-[1200ms] rounded-[4rem] group border-white/5 bg-zinc-900/20 backdrop-blur-xl ${plan.isPopular ? 'border-primary/40 shadow-[0_0_80px_rgba(212,175,55,0.15)] scale-105' : 'hover:border-primary/20 shadow-2xl'}`}>
-                {plan.isPopular && (
-                  <div className="absolute top-10 right-10">
-                    <Badge className="bg-primary text-black font-bold uppercase tracking-widest text-[9px] px-4 py-1.5 rounded-full">Plus Prisé</Badge>
+              <Card key={i} className={`rounded-3xl border-white/5 bg-zinc-900/20 backdrop-blur-xl p-10 flex flex-col justify-between transition-all duration-500 hover:scale-[1.02] ${plan.isPopular ? 'border-primary/40 shadow-2xl' : ''}`}>
+                <div className="space-y-8">
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-2xl font-headline font-bold">{plan.name}</h3>
+                    {plan.isPopular && <Badge className="bg-primary text-black font-bold text-[9px]">Recommandé</Badge>}
                   </div>
-                )}
-                <CardHeader className="p-12 space-y-6 text-center">
-                  <div className="flex justify-center">
-                    <div className="w-20 h-20 rounded-3xl bg-zinc-900 border border-white/10 flex items-center justify-center text-primary group-hover:scale-110 group-hover:rotate-6 transition-all duration-1000 shadow-inner">
-                      {plan.name === "Cercle Diamond" ? <Gem size={32} /> : plan.name === "Cercle Impérial" ? <Crown size={32} /> : <Star size={32} />}
-                    </div>
+                  <div className="space-y-1">
+                    <span className="text-5xl font-bold luxury-gold-gradient">{plan.price}</span>
+                    <span className="block text-[10px] text-zinc-500 uppercase tracking-widest">{plan.period}</span>
                   </div>
-                  <div className="space-y-2">
-                    <CardTitle className="text-4xl font-headline font-bold uppercase tracking-tight">{plan.name}</CardTitle>
-                    <CardDescription className="text-zinc-500 font-medium italic">{plan.description}</CardDescription>
-                  </div>
-                </CardHeader>
-                <CardContent className="p-12 space-y-12">
-                  <div className="text-center space-y-1">
-                    <span className="text-6xl font-headline font-bold luxury-gold-gradient">{plan.price}</span>
-                    <span className="block text-xs text-zinc-600 font-bold uppercase tracking-[0.4em]">{plan.period}</span>
-                  </div>
-                  <div className="space-y-6">
-                    {plan.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-4 group/item">
-                        <div className="w-6 h-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0 group-hover/item:bg-primary group-hover/item:text-black transition-all duration-500">
-                          <Check size={12} strokeWidth={4} />
-                        </div>
-                        <span className="text-sm text-zinc-400 font-medium tracking-wide group-hover/item:text-white transition-colors">{feature}</span>
-                      </div>
+                  <ul className="space-y-4">
+                    {plan.features.map((f, idx) => (
+                      <li key={idx} className="flex items-center gap-3 text-sm text-zinc-400">
+                        <Check size={14} className="text-primary shrink-0" /> {f}
+                      </li>
                     ))}
-                  </div>
-                </CardContent>
-                <CardFooter className="p-12 pt-0">
-                  <Button className={`w-full py-10 rounded-full font-bold text-lg uppercase tracking-[0.3em] transition-all duration-1000 shadow-2xl ${plan.isPopular ? 'bg-primary text-black hover:bg-white' : 'bg-white/5 text-white hover:bg-primary hover:text-black border border-white/10'}`}>
-                    {plan.cta}
-                  </Button>
-                </CardFooter>
+                  </ul>
+                </div>
+                <Button className={`w-full mt-10 rounded-full py-6 font-bold uppercase tracking-widest h-auto ${plan.isPopular ? 'bg-primary text-black hover:bg-white' : 'bg-white/5 text-white hover:bg-primary hover:text-black border border-white/10'}`}>
+                  {plan.cta}
+                </Button>
               </Card>
             ))}
           </div>
         </section>
 
-        {/* AI & Analytics Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          <div className="lg:col-span-8 space-y-24">
-            <div className="soft-reveal">
-              <AIRecommender />
-            </div>
-            <div className="soft-reveal">
-              <ActivityChart />
-            </div>
-
-            {/* Premium Planning Card */}
-            <Card className="premium-card soft-reveal">
-              <CardHeader className="flex flex-row items-center justify-between p-16 border-b border-white/5">
+        {/* Testimonials */}
+        <section className="space-y-20 soft-reveal pb-20">
+          <h2 className="text-4xl font-headline font-bold text-center">La voix de <br/><span className="luxury-gold-gradient">nos Ambassadeurs</span></h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {TESTIMONIALS.map((t, i) => (
+              <Card key={i} className="premium-card p-10 space-y-6 text-center">
+                <div className="relative w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-primary/20">
+                  <Image src={`https://picsum.photos/seed/${t.seed}/200`} alt={t.name} fill className="object-cover grayscale" />
+                </div>
                 <div className="space-y-2">
-                  <CardTitle className="text-5xl font-headline font-bold tracking-tighter">Votre Agenda VIP</CardTitle>
-                  <p className="text-zinc-500 text-sm font-bold tracking-[0.4em] uppercase">Privilèges & Protocoles</p>
+                  <Quote className="text-primary/20 mx-auto" size={32} />
+                  <p className="text-zinc-400 text-sm italic italic leading-relaxed">"{t.content}"</p>
                 </div>
-                <Link href="/booking">
-                  <Button variant="ghost" className="text-primary hover:text-white flex items-center gap-4 font-bold tracking-[0.3em] text-sm uppercase transition-all duration-500">
-                    Découvrir l'Exclusivité <ArrowRight size={20} />
-                  </Button>
-                </Link>
-              </CardHeader>
-              <CardContent className="p-16 space-y-12">
-                {[
-                  { time: "07:30", title: "Méditation Solaire Privée", type: "Esprit", duration: "45 min", status: "Confirmé", color: "text-primary bg-primary/10" },
-                  { time: "11:00", title: "Soin Signature 'Or Pur'", type: "Beauté", duration: "90 min", status: "En attente", color: "text-zinc-500 bg-zinc-500/10" },
-                  { time: "17:30", title: "Masterclass Performance High-Intensity", type: "Sport", duration: "60 min", status: "À venir", color: "text-zinc-500 bg-zinc-500/10" },
-                ].map((event, i) => (
-                  <div key={i} className="flex items-center gap-12 p-10 rounded-[3rem] hover:bg-zinc-800/20 transition-all duration-700 border border-transparent hover:border-white/5 group cursor-pointer">
-                    <span className="font-headline font-bold text-5xl text-zinc-900 w-32 group-hover:text-primary transition-colors duration-500">{event.time}</span>
-                    <div className="flex-1 space-y-3">
-                      <h4 className="font-bold text-3xl group-hover:text-white transition-colors duration-500">{event.title}</h4>
-                      <div className="flex items-center gap-8">
-                        <p className="text-base text-zinc-500 flex items-center gap-3 font-medium"><Calendar size={18} className="text-primary" /> {event.duration}</p>
-                        <Badge variant="outline" className="text-[10px] uppercase font-bold px-6 py-2 border-zinc-800 text-zinc-500 tracking-widest">{event.type}</Badge>
-                      </div>
-                    </div>
-                    <span className={`text-[11px] font-bold px-8 py-4 rounded-full uppercase tracking-[0.3em] shadow-xl ${event.color}`}>
-                      {event.status}
-                    </span>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
+                <div>
+                  <h4 className="font-bold uppercase text-xs tracking-widest">{t.name}</h4>
+                  <span className="text-[10px] text-zinc-600 font-medium">{t.role}</span>
+                </div>
+              </Card>
+            ))}
           </div>
-
-          {/* Sidebar */}
-          <div className="lg:col-span-4 space-y-16">
-            <Card className="bg-zinc-900/40 border border-primary/20 shadow-[0_40px_80px_rgba(0,0,0,0.6)] rounded-[4rem] overflow-hidden relative soft-reveal">
-              <div className="absolute top-0 right-0 p-12 opacity-[0.03] rotate-12">
-                <Crown size={300} />
-              </div>
-              <CardContent className="p-16 space-y-12 relative z-10">
-                <Badge className="bg-primary text-black font-bold tracking-[0.3em] px-6 py-2 rounded-full text-[10px]">DÉFI IMPÉRIAL</Badge>
-                <div className="space-y-4">
-                  <h3 className="text-5xl font-headline font-bold leading-[1.1] tracking-tighter">Éveil de la <br/>Vitalité Pure</h3>
-                  <p className="text-zinc-400 text-xl font-light leading-relaxed">Sublimez votre excellence avec 3.0L d'eau de source artisanale aujourd'hui.</p>
-                </div>
-                <div className="space-y-8">
-                  <div className="flex justify-between text-xs font-bold uppercase tracking-[0.4em]">
-                    <span className="text-zinc-600">Progression</span>
-                    <span className="text-primary">2.1L / 3.0L</span>
-                  </div>
-                  <div className="h-3 bg-zinc-800/40 rounded-full overflow-hidden p-[3px]">
-                    <div className="h-full bg-gradient-to-r from-primary/40 to-primary w-[70%] rounded-full shadow-[0_0_20px_rgba(212,175,55,0.5)] transition-all duration-[3000ms]" />
-                  </div>
-                </div>
-                <Button className="w-full bg-white text-black hover:bg-primary rounded-full font-bold py-10 transition-all duration-700 text-lg uppercase tracking-[0.3em] shadow-2xl">
-                  Actualiser mes Rituels
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="premium-card p-16 soft-reveal">
-              <div className="flex items-center justify-between mb-12">
-                <h3 className="text-3xl font-headline font-bold tracking-tighter">Le Salon Privé</h3>
-                <div className="flex items-center gap-3">
-                  <div className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
-                  <span className="text-[11px] text-zinc-500 font-bold uppercase tracking-[0.4em]">Live</span>
-                </div>
-              </div>
-              <div className="space-y-10">
-                {[
-                  { name: "Sonia D.", action: "Membre Émeraude 💎", seed: "vip1" },
-                  { name: "Marc-André", action: "Record Masterclass HIIT ⚡", seed: "vip2" },
-                  { name: "Hélène L.", action: "Soin facial Platinum complété ✨", seed: "vip3" },
-                ].map((user, i) => (
-                  <div key={i} className="flex items-center gap-8 group cursor-pointer">
-                    <div className="relative">
-                      <div className="w-20 h-20 rounded-full border-2 border-primary/10 overflow-hidden group-hover:border-primary transition-all duration-1000">
-                        <Image src={`https://picsum.photos/seed/${user.seed}/120`} alt={user.name} width={80} height={80} className="grayscale group-hover:grayscale-0 transition-all duration-[1500ms]" />
-                      </div>
-                      <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-primary border-[4px] border-black rounded-full shadow-2xl" />
-                    </div>
-                    <div className="space-y-2">
-                      <p className="text-lg font-bold group-hover:text-primary transition-colors duration-500">{user.name}</p>
-                      <p className="text-sm text-zinc-500 italic font-light opacity-60">"{user.action}"</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <Button variant="outline" className="w-full rounded-full mt-12 border-zinc-800 text-zinc-600 hover:text-primary hover:border-primary transition-all duration-700 font-bold text-[11px] uppercase tracking-[0.4em] py-8">
-                Accéder au Cercle
-              </Button>
-            </Card>
-
-            <div className="flex items-center justify-center gap-6 p-12 border border-white/5 rounded-[3.5rem] opacity-30 hover:opacity-100 transition-opacity duration-1000">
-              <ShieldCheck size={28} className="text-primary" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.5em] text-zinc-500 text-center">Protocoles de Sécurité B-right Diamond</span>
-            </div>
-          </div>
-        </div>
+        </section>
       </main>
     </div>
   );
