@@ -1,11 +1,26 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Crown, Globe, Banknote, Sparkles, Activity, ShieldCheck, Heart, User, ArrowRight, Star, Gem, Target, TrendingUp, Shield } from 'lucide-react';
+import { 
+  Crown, 
+  Globe, 
+  Banknote, 
+  Sparkles, 
+  Activity, 
+  ShieldCheck, 
+  Heart, 
+  User, 
+  ArrowRight, 
+  Star, 
+  Gem, 
+  Target, 
+  TrendingUp, 
+  Utensils, 
+  ShoppingBag 
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -14,6 +29,8 @@ export default function OnboardingPage() {
   const [screen, setScreen] = useState<'splash' | 'language' | 'currency' | 'main'>('splash');
   const [language, setLanguage] = useState('Français');
   const [currency, setCurrency] = useState('Euro (EUR)');
+
+  const defaultPlaceholder = "https://picsum.photos/seed/placeholder/800/1000";
 
   useEffect(() => {
     if (screen === 'splash') {
@@ -115,7 +132,7 @@ export default function OnboardingPage() {
           <Link href="/services" className="group">
             <div className="relative aspect-[4/5] rounded-[3.5rem] overflow-hidden border border-white/5 transition-all duration-1000 group-hover:border-primary/50 shadow-3xl">
               <Image 
-                src={PlaceHolderImages.find(p => p.id === 'beauty-hair')?.imageUrl || ""}
+                src={PlaceHolderImages.find(p => p.id === 'beauty-hair')?.imageUrl || defaultPlaceholder}
                 alt="Univers des Services" 
                 fill 
                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-[3000ms] group-hover:scale-105 opacity-50 group-hover:opacity-100" 
@@ -140,7 +157,7 @@ export default function OnboardingPage() {
           <Link href="/tracking" className="group">
             <div className="relative aspect-[4/5] rounded-[3.5rem] overflow-hidden border border-white/5 transition-all duration-1000 group-hover:border-primary/50 shadow-3xl">
               <Image 
-                src={PlaceHolderImages.find(p => p.id === 'tracking-evolution')?.imageUrl || ""}
+                src={PlaceHolderImages.find(p => p.id === 'tracking-evolution')?.imageUrl || defaultPlaceholder}
                 alt="Mon Suivi de Transformation" 
                 fill 
                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-[3000ms] group-hover:scale-105 opacity-50 group-hover:opacity-100" 
