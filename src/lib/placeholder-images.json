@@ -49,6 +49,12 @@
       "imageHint": "gourmet healthy"
     },
     {
+      "id": "nutrition-restaurant",
+      "description": "Ambiance de restaurant gastronomique de luxe",
+      "imageUrl": "https://picsum.photos/seed/luxury-dining/1200/800",
+      "imageHint": "luxury dining"
+    },
+    {
       "id": "shopping-fashion",
       "description": "Boutique de luxe, vêtements de créateurs sur cintres dorés",
       "imageUrl": "https://picsum.photos/seed/luxury-shop/800/1000",
@@ -71,6 +77,18 @@
       "description": "Graphique de performance athlétique sur tablette de luxe",
       "imageUrl": "https://picsum.photos/seed/data-pro/800/400",
       "imageHint": "data analysis"
+    },
+    {
+      "id": "body-analysis",
+      "description": "Analyse corporelle high-tech dans un centre de santé VIP",
+      "imageUrl": "https://picsum.photos/seed/body-scan/800/600",
+      "imageHint": "medical scan"
+    },
+    {
+      "id": "before-after",
+      "description": "Galerie de transformation physique avant-après",
+      "imageUrl": "https://picsum.photos/seed/fitness-transform/800/600",
+      "imageHint": "fitness growth"
     }
   ]
 }
