@@ -7,6 +7,30 @@
       "imageHint": "wellness interior"
     },
     {
+      "id": "beauty-hair",
+      "description": "Luxurious hair salon service",
+      "imageUrl": "https://picsum.photos/seed/hair1/600/600",
+      "imageHint": "hair salon"
+    },
+    {
+      "id": "beauty-nails",
+      "description": "Elegant manicure and nail art",
+      "imageUrl": "https://picsum.photos/seed/nails1/600/600",
+      "imageHint": "manicure nails"
+    },
+    {
+      "id": "beauty-makeup",
+      "description": "Professional makeup session",
+      "imageUrl": "https://picsum.photos/seed/makeup1/600/600",
+      "imageHint": "makeup professional"
+    },
+    {
+      "id": "beauty-face",
+      "description": "High-end facial and body treatment",
+      "imageUrl": "https://picsum.photos/seed/face1/600/600",
+      "imageHint": "facial spa"
+    },
+    {
       "id": "beauty-service",
       "description": "A person receiving a high-end facial treatment",
       "imageUrl": "https://picsum.photos/seed/monde2/600/400",

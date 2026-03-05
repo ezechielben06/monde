@@ -12,6 +12,7 @@ export default {
       fontFamily: {
         body: ['Inter', 'sans-serif'],
         headline: ['Space Grotesk', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
         code: ['monospace'],
       },
       colors: {
