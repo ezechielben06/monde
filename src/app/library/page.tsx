@@ -2,6 +2,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Search, PlayCircle, FileText, ChevronRight, Book, Video, Star, Clock, Eye, Download } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -36,7 +37,7 @@ export default function LibraryPage() {
           </div>
           <div className="relative w-full md:w-[450px] group">
             <Search className="absolute left-8 top-1/2 -translate-y-1/2 text-zinc-600 group-focus-within:text-primary transition-colors" size={24} />
-            <Input className="pl-20 h-20 rounded-full border-white/10 bg-zinc-900/40 text-xl placeholder:text-zinc-800 focus:border-primary/40 focus:ring-0 transition-all shadow-2xl" placeholder="Chercher une masterclass..." />
+            <Input className="pl-20 min-h-[5rem] rounded-full border-white/10 bg-zinc-900/40 text-xl placeholder:text-zinc-800 focus:border-primary/40 focus:ring-0 transition-all shadow-2xl" placeholder="Chercher une masterclass..." />
           </div>
         </header>
 
