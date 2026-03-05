@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-wellness",
+      "description": "A serene wellness center interior with modern design",
+      "imageUrl": "https://picsum.photos/seed/monde1/1200/600",
+      "imageHint": "wellness interior"
+    },
+    {
+      "id": "beauty-service",
+      "description": "A person receiving a high-end facial treatment",
+      "imageUrl": "https://picsum.photos/seed/monde2/600/400",
+      "imageHint": "facial spa"
+    },
+    {
+      "id": "fitness-session",
+      "description": "A modern gym space with people working out",
+      "imageUrl": "https://picsum.photos/seed/monde3/600/400",
+      "imageHint": "gym fitness"
+    },
+    {
+      "id": "healthy-meal",
+      "description": "A vibrant and healthy gourmet salad",
+      "imageUrl": "https://picsum.photos/seed/monde4/600/400",
+      "imageHint": "healthy food"
+    },
+    {
+      "id": "coaching-meditation",
+      "description": "Someone meditating in a peaceful garden",
+      "imageUrl": "https://picsum.photos/seed/monde5/600/400",
+      "imageHint": "meditation peace"
+    }
+  ]
 }
