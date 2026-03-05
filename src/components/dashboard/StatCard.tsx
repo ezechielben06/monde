@@ -16,29 +16,29 @@ interface StatCardProps {
 export function StatCard({ label, value, subValue, icon, trend, className }: StatCardProps) {
   return (
     <Card className={cn(
-      "overflow-hidden border border-white/5 bg-zinc-900/30 hover:border-primary/40 transition-all duration-700 rounded-[2.5rem] group shadow-2xl",
+      "overflow-hidden border border-white/5 bg-zinc-900/10 hover:border-primary/30 transition-all duration-[1200ms] rounded-[3.5rem] group shadow-2xl backdrop-blur-sm",
       className
     )}>
-      <CardContent className="p-10">
-        <div className="flex justify-between items-start">
-          <div className="space-y-3">
-            <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.3em]">{label}</p>
-            <h3 className="text-4xl font-bold font-headline luxury-gold-gradient leading-none tracking-tighter">{value}</h3>
-            {subValue && <p className="text-xs text-zinc-600 font-medium italic tracking-wide">{subValue}</p>}
+      <CardContent className="p-12">
+        <div className="flex justify-between items-start mb-10">
+          <div className="space-y-4">
+            <p className="text-[11px] font-bold text-zinc-600 uppercase tracking-[0.5em]">{label}</p>
+            <h3 className="text-5xl font-bold font-headline luxury-gold-gradient leading-none tracking-tighter">{value}</h3>
+            {subValue && <p className="text-sm text-zinc-700 font-medium italic tracking-wide">{subValue}</p>}
           </div>
-          <div className="p-4 rounded-2xl bg-zinc-800/40 border border-white/5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-700">
+          <div className="p-6 rounded-[1.5rem] bg-zinc-900/60 border border-white/5 group-hover:scale-110 group-hover:rotate-12 transition-all duration-[1200ms] shadow-inner">
             {icon}
           </div>
         </div>
         {trend && (
-          <div className="mt-8 flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <span className={cn(
-              "text-[10px] font-bold px-4 py-1.5 rounded-full border",
-              trend.isUp ? "bg-primary/10 text-primary border-primary/20" : "bg-zinc-800 text-zinc-400 border-white/5"
+              "text-[10px] font-bold px-5 py-2 rounded-full border tracking-widest uppercase",
+              trend.isUp ? "bg-primary/5 text-primary border-primary/20" : "bg-zinc-900 text-zinc-500 border-white/5"
             )}>
               {trend.isUp ? "+" : "-"}{trend.value}
             </span>
-            <span className="text-[9px] text-zinc-700 font-bold uppercase tracking-[0.3em]">Performance</span>
+            <span className="text-[10px] text-zinc-800 font-bold uppercase tracking-[0.4em]">Performance</span>
           </div>
         )}
       </CardContent>

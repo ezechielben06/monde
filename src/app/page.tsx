@@ -14,82 +14,82 @@ export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-wellness');
 
   return (
-    <div className="min-h-screen pb-20 md:pb-0 md:pt-20 bg-[#050505]">
+    <div className="min-h-screen pb-32 md:pb-0 md:pt-24 bg-[#050505]">
       <Navbar />
       
-      <main className="max-w-7xl mx-auto px-6 lg:px-10 py-10 space-y-16">
-        {/* Luxury Hero Section */}
-        <section className="relative h-[600px] md:h-[700px] rounded-[3.5rem] overflow-hidden group border border-primary/20 soft-reveal">
+      <main className="max-w-[1600px] mx-auto container-padding space-y-32">
+        {/* Ultra-Luxury Hero Section */}
+        <section className="relative h-[85vh] rounded-[4rem] overflow-hidden group border border-white/5 soft-reveal">
           {heroImage && (
             <Image 
               src={heroImage.imageUrl}
               alt={heroImage.description}
               fill
-              className="object-cover opacity-50 group-hover:scale-105 transition-transform duration-[4000ms] ease-out"
+              className="object-cover opacity-40 group-hover:scale-105 transition-transform duration-[6000ms] ease-out"
               priority
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent flex flex-col justify-end p-10 md:p-16 text-white">
-            <div className="max-w-4xl space-y-8">
-              <div className="flex items-center gap-3">
-                <Badge className="bg-primary/10 text-primary border border-primary/30 py-2 px-6 rounded-full text-[10px] font-bold tracking-[0.3em] uppercase backdrop-blur-md">
-                  Conciergerie B-right Élite
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent flex flex-col justify-end p-12 md:p-24 text-white">
+            <div className="max-w-5xl space-y-12">
+              <div className="flex items-center gap-4">
+                <Badge className="bg-primary/10 text-primary border border-primary/20 py-3 px-8 rounded-full text-[12px] font-bold tracking-[0.4em] uppercase backdrop-blur-xl">
+                  B-right Conciergerie Privée
                 </Badge>
-                <div className="h-px w-20 bg-primary/30 hidden md:block" />
+                <div className="h-px w-32 bg-primary/20 hidden md:block" />
               </div>
-              <h1 className="text-6xl md:text-9xl font-headline font-bold leading-[0.9] tracking-tighter luxury-gold-gradient">
-                Le Prestige <br/> sans <br/> compromis.
+              <h1 className="text-7xl md:text-[10rem] font-headline font-bold leading-[0.85] tracking-tighter luxury-gold-gradient">
+                L'Excellence <br/> Absolue.
               </h1>
-              <p className="text-zinc-400 font-light max-w-xl text-xl leading-relaxed tracking-wide">
-                Bienvenue dans votre sanctuaire. Aujourd'hui, votre vitalité atteint un sommet de <span className="text-primary font-bold">92%</span>. L'excellence vous attend.
+              <p className="text-zinc-400 font-light max-w-2xl text-2xl leading-relaxed tracking-wide opacity-80">
+                L'art de la transformation globale. Aujourd'hui, votre indice de vitalité prestige atteint <span className="text-primary font-bold">96%</span>.
               </p>
-              <div className="flex flex-wrap gap-6 pt-6">
-                <Button className="rounded-full px-14 py-8 bg-primary text-black hover:bg-white hover:scale-105 transition-all duration-500 font-bold text-lg shadow-[0_20px_50px_rgba(212,175,55,0.2)]">
-                  Entrer dans l'expérience
+              <div className="flex flex-wrap gap-8 pt-8">
+                <Button className="rounded-full px-16 py-10 bg-primary text-black hover:bg-white hover:scale-105 transition-all duration-700 font-bold text-xl shadow-[0_25px_60px_rgba(212,175,55,0.25)]">
+                  Lancer l'Expérience
                 </Button>
-                <Button variant="outline" className="rounded-full px-14 py-8 border-primary/30 text-primary hover:bg-primary/10 font-bold text-lg backdrop-blur-md transition-all duration-500">
-                  Mon Bilan Privé
+                <Button variant="outline" className="rounded-full px-16 py-10 border-white/10 text-white hover:bg-white/10 font-bold text-xl backdrop-blur-xl transition-all duration-700">
+                  Consulter mon Bilan VIP
                 </Button>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Exclusive Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 soft-reveal [animation-delay:200ms]">
+        {/* Exclusive Stats Grid - More Air */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 soft-reveal [animation-delay:200ms]">
           <StatCard 
-            label="Énergie Consommée" 
-            value="2,150" 
-            subValue="Kcal / Optimal"
-            icon={<Zap className="text-primary" size={24} />}
-            trend={{ value: "15%", isUp: true }}
+            label="Énergie Vitale" 
+            value="2,480" 
+            subValue="Kcal / Niveau Optimal"
+            icon={<Zap className="text-primary" size={28} />}
+            trend={{ value: "18%", isUp: true }}
           />
           <StatCard 
-            label="Focus Mental" 
-            value="Excellence" 
-            subValue="État de Flow"
-            icon={<Brain className="text-primary" size={24} />}
-            trend={{ value: "4 pts", isUp: true }}
+            label="Clarté Cognitive" 
+            value="Elite" 
+            subValue="Zone de Performance"
+            icon={<Sparkles className="text-primary" size={28} />}
+            trend={{ value: "6 pts", isUp: true }}
           />
           <StatCard 
             label="Régénération" 
-            value="7h 45m" 
+            value="8h 12m" 
             subValue="Sommeil Profond"
-            icon={<Moon className="text-primary" size={24} />}
-            trend={{ value: "30m", isUp: true }}
+            icon={<Heart className="text-primary" size={28} />}
+            trend={{ value: "45m", isUp: true }}
           />
           <StatCard 
-            label="Rang Prestige" 
-            value="Platinum" 
+            label="Statut Membre" 
+            value="Diamond" 
             subValue="Cercle des Initiés"
-            icon={<Crown className="text-primary" size={24} />}
-            trend={{ value: "Top 0.5%", isUp: true }}
+            icon={<Crown className="text-primary" size={28} />}
+            trend={{ value: "Top 0.1%", isUp: true }}
           />
         </div>
 
-        {/* AI & Analytics Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-          <div className="lg:col-span-2 space-y-12">
+        {/* AI & Analytics Section - Layout Adjusted */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          <div className="lg:col-span-8 space-y-24">
             <div className="soft-reveal [animation-delay:400ms]">
               <AIRecommender />
             </div>
@@ -97,35 +97,35 @@ export default function Home() {
               <ActivityChart />
             </div>
 
-            {/* Exclusive Planning */}
+            {/* Premium Planning Card */}
             <Card className="premium-card soft-reveal [animation-delay:800ms]">
-              <CardHeader className="flex flex-row items-center justify-between p-12 border-b border-white/5">
-                <div>
-                  <CardTitle className="text-4xl font-headline font-bold mb-2 tracking-tighter">Votre Agenda VIP</CardTitle>
-                  <p className="text-zinc-500 text-sm font-medium tracking-widest uppercase">Privilèges et rendez-vous</p>
+              <CardHeader className="flex flex-row items-center justify-between p-16 border-b border-white/5">
+                <div className="space-y-2">
+                  <CardTitle className="text-5xl font-headline font-bold tracking-tighter">Votre Agenda VIP</CardTitle>
+                  <p className="text-zinc-500 text-sm font-bold tracking-[0.4em] uppercase">Privilèges & Protocoles</p>
                 </div>
                 <Link href="/booking">
-                  <Button variant="ghost" className="text-primary hover:text-white flex items-center gap-3 font-bold tracking-[0.2em] text-xs uppercase transition-all">
-                    Explorer <ArrowRight size={16} />
+                  <Button variant="ghost" className="text-primary hover:text-white flex items-center gap-4 font-bold tracking-[0.3em] text-sm uppercase transition-all duration-500">
+                    Découvrir l'Exclusivité <ArrowRight size={20} />
                   </Button>
                 </Link>
               </CardHeader>
-              <CardContent className="p-12 space-y-8">
+              <CardContent className="p-16 space-y-12">
                 {[
-                  { time: "07:30", title: "Méditation Solaire Privée", type: "Esprit", duration: "30 min", status: "Confirmé", color: "text-primary bg-primary/10" },
+                  { time: "07:30", title: "Méditation Solaire Privée", type: "Esprit", duration: "45 min", status: "Confirmé", color: "text-primary bg-primary/10" },
                   { time: "11:00", title: "Soin Signature 'Or Pur'", type: "Beauté", duration: "90 min", status: "En attente", color: "text-zinc-500 bg-zinc-500/10" },
-                  { time: "17:30", title: "Masterclass Performance", type: "Sport", duration: "45 min", status: "À venir", color: "text-zinc-500 bg-zinc-500/10" },
+                  { time: "17:30", title: "Masterclass Performance High-Intensity", type: "Sport", duration: "60 min", status: "À venir", color: "text-zinc-500 bg-zinc-500/10" },
                 ].map((event, i) => (
-                  <div key={i} className="flex items-center gap-10 p-8 rounded-3xl hover:bg-zinc-800/30 transition-all border border-transparent hover:border-white/5 group cursor-pointer">
-                    <span className="font-headline font-bold text-3xl text-zinc-800 w-24 group-hover:text-primary transition-colors">{event.time}</span>
-                    <div className="flex-1">
-                      <h4 className="font-bold text-2xl group-hover:text-white transition-colors">{event.title}</h4>
-                      <div className="flex items-center gap-6 mt-3">
-                        <p className="text-sm text-zinc-500 flex items-center gap-2 font-medium"><Calendar size={16} className="text-primary" /> {event.duration}</p>
-                        <Badge variant="outline" className="text-[9px] uppercase font-bold px-4 py-1 border-zinc-800 text-zinc-500 tracking-widest">{event.type}</Badge>
+                  <div key={i} className="flex items-center gap-12 p-10 rounded-[3rem] hover:bg-zinc-800/20 transition-all duration-700 border border-transparent hover:border-white/5 group cursor-pointer">
+                    <span className="font-headline font-bold text-5xl text-zinc-900 w-32 group-hover:text-primary transition-colors duration-500">{event.time}</span>
+                    <div className="flex-1 space-y-3">
+                      <h4 className="font-bold text-3xl group-hover:text-white transition-colors duration-500">{event.title}</h4>
+                      <div className="flex items-center gap-8">
+                        <p className="text-base text-zinc-500 flex items-center gap-3 font-medium"><Calendar size={18} className="text-primary" /> {event.duration}</p>
+                        <Badge variant="outline" className="text-[10px] uppercase font-bold px-6 py-2 border-zinc-800 text-zinc-500 tracking-widest">{event.type}</Badge>
                       </div>
                     </div>
-                    <span className={`text-[10px] font-bold px-5 py-2.5 rounded-full uppercase tracking-[0.2em] shadow-lg ${event.color}`}>
+                    <span className={`text-[11px] font-bold px-8 py-4 rounded-full uppercase tracking-[0.3em] shadow-xl ${event.color}`}>
                       {event.status}
                     </span>
                   </div>
@@ -134,79 +134,73 @@ export default function Home() {
             </Card>
           </div>
 
-          {/* Sidebar / Member Exclusive */}
-          <div className="space-y-10">
-            <Card className="bg-zinc-900 border border-primary/20 shadow-[0_30px_60px_rgba(0,0,0,0.5)] rounded-[3rem] overflow-hidden relative soft-reveal [animation-delay:1000ms]">
-              <div className="absolute top-0 right-0 p-10 opacity-5 rotate-12 group-hover:rotate-0 transition-transform duration-[2s]">
-                <Crown size={220} />
+          {/* Sidebar - Proportions Adjusted */}
+          <div className="lg:col-span-4 space-y-16">
+            <Card className="bg-zinc-900/40 border border-primary/20 shadow-[0_40px_80px_rgba(0,0,0,0.6)] rounded-[4rem] overflow-hidden relative soft-reveal [animation-delay:1000ms]">
+              <div className="absolute top-0 right-0 p-12 opacity-[0.03] rotate-12">
+                <Crown size={300} />
               </div>
-              <CardContent className="p-12 space-y-10 relative z-10">
-                <Badge className="bg-primary text-black font-bold tracking-widest px-4 py-1.5">DÉFI IMPÉRIAL</Badge>
-                <h3 className="text-4xl font-headline font-bold leading-tight tracking-tighter">Éveil de Vitalité</h3>
-                <p className="text-zinc-400 text-lg font-light leading-relaxed">Hydratez votre excellence avec 2.5L d'eau de source aujourd'hui.</p>
-                <div className="space-y-6">
-                  <div className="flex justify-between text-xs font-bold uppercase tracking-[0.3em]">
-                    <span className="text-zinc-500">Progression</span>
-                    <span className="text-primary">1.8L / 2.5L</span>
+              <CardContent className="p-16 space-y-12 relative z-10">
+                <Badge className="bg-primary text-black font-bold tracking-[0.3em] px-6 py-2 rounded-full text-[10px]">DÉFI IMPÉRIAL</Badge>
+                <div className="space-y-4">
+                  <h3 className="text-5xl font-headline font-bold leading-[1.1] tracking-tighter">Éveil de la <br/>Vitalité Pure</h3>
+                  <p className="text-zinc-400 text-xl font-light leading-relaxed">Sublimez votre excellence avec 3.0L d'eau de source artisanale aujourd'hui.</p>
+                </div>
+                <div className="space-y-8">
+                  <div className="flex justify-between text-xs font-bold uppercase tracking-[0.4em]">
+                    <span className="text-zinc-600">Progression</span>
+                    <span className="text-primary">2.1L / 3.0L</span>
                   </div>
-                  <div className="h-2.5 bg-zinc-800/50 rounded-full overflow-hidden p-[2px]">
-                    <div className="h-full bg-gradient-to-r from-primary/60 to-primary w-[72%] rounded-full shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all duration-[2s]" />
+                  <div className="h-3 bg-zinc-800/40 rounded-full overflow-hidden p-[3px]">
+                    <div className="h-full bg-gradient-to-r from-primary/40 to-primary w-[70%] rounded-full shadow-[0_0_20px_rgba(212,175,55,0.5)] transition-all duration-[3000ms]" />
                   </div>
                 </div>
-                <Button className="w-full bg-white text-black hover:bg-primary rounded-full font-bold py-8 transition-all duration-500 text-base uppercase tracking-widest shadow-xl">
-                  Mettre à jour mes rituels
+                <Button className="w-full bg-white text-black hover:bg-primary rounded-full font-bold py-10 transition-all duration-700 text-lg uppercase tracking-[0.3em] shadow-2xl">
+                  Actualiser mes Rituels
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="premium-card p-10 soft-reveal [animation-delay:1200ms]">
-              <div className="flex items-center justify-between mb-10">
-                <h3 className="text-2xl font-headline font-bold tracking-tight">Le Cercle Privé</h3>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest">En direct</span>
+            <Card className="premium-card p-16 soft-reveal [animation-delay:1200ms]">
+              <div className="flex items-center justify-between mb-12">
+                <h3 className="text-3xl font-headline font-bold tracking-tighter">Le Salon Privé</h3>
+                <div className="flex items-center gap-3">
+                  <div className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
+                  <span className="text-[11px] text-zinc-500 font-bold uppercase tracking-[0.4em]">Live</span>
                 </div>
               </div>
-              <div className="space-y-8">
+              <div className="space-y-10">
                 {[
-                  { name: "Sonia D.", action: "A débloqué le rang Émeraude 💎", seed: "vip1" },
-                  { name: "Jean-Philippe", action: "Nouveau record au HIIT Master ⚡", seed: "vip2" },
-                  { name: "Léa M.", action: "Soin facial Platinum complété ✨", seed: "vip3" },
+                  { name: "Sonia D.", action: "Membre Émeraude 💎", seed: "vip1" },
+                  { name: "Marc-André", action: "Record Masterclass HIIT ⚡", seed: "vip2" },
+                  { name: "Hélène L.", action: "Soin facial Platinum complété ✨", seed: "vip3" },
                 ].map((user, i) => (
-                  <div key={i} className="flex items-center gap-6 group cursor-pointer">
+                  <div key={i} className="flex items-center gap-8 group cursor-pointer">
                     <div className="relative">
-                      <div className="w-16 h-16 rounded-full border-2 border-primary/20 overflow-hidden group-hover:border-primary transition-all duration-500">
-                        <Image src={`https://picsum.photos/seed/${user.seed}/100`} alt={user.name} width={64} height={64} className="grayscale group-hover:grayscale-0 transition-all duration-700" />
+                      <div className="w-20 h-20 rounded-full border-2 border-primary/10 overflow-hidden group-hover:border-primary transition-all duration-1000">
+                        <Image src={`https://picsum.photos/seed/${user.seed}/120`} alt={user.name} width={80} height={80} className="grayscale group-hover:grayscale-0 transition-all duration-[1500ms]" />
                       </div>
-                      <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-primary border-[3px] border-black rounded-full shadow-lg" />
+                      <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-primary border-[4px] border-black rounded-full shadow-2xl" />
                     </div>
-                    <div className="space-y-1">
-                      <p className="text-sm font-bold group-hover:text-primary transition-colors duration-300">{user.name}</p>
-                      <p className="text-xs text-zinc-500 italic font-light">"{user.action}"</p>
+                    <div className="space-y-2">
+                      <p className="text-lg font-bold group-hover:text-primary transition-colors duration-500">{user.name}</p>
+                      <p className="text-sm text-zinc-500 italic font-light opacity-60">"{user.action}"</p>
                     </div>
                   </div>
                 ))}
               </div>
-              <Button variant="outline" className="w-full rounded-full mt-10 border-zinc-800 text-zinc-500 hover:text-primary hover:border-primary transition-all duration-500 font-bold text-[10px] uppercase tracking-[0.3em] py-6">
-                Accéder au Salon Privé
+              <Button variant="outline" className="w-full rounded-full mt-12 border-zinc-800 text-zinc-600 hover:text-primary hover:border-primary transition-all duration-700 font-bold text-[11px] uppercase tracking-[0.4em] py-8">
+                Accéder au Cercle
               </Button>
             </Card>
 
-            <div className="flex items-center justify-center gap-4 p-8 border border-white/5 rounded-[2.5rem] opacity-30 hover:opacity-100 transition-opacity duration-700">
-              <ShieldCheck size={24} className="text-primary" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-500 text-center">Protocoles de Sécurité B-right Élite</span>
+            <div className="flex items-center justify-center gap-6 p-12 border border-white/5 rounded-[3.5rem] opacity-30 hover:opacity-100 transition-opacity duration-1000">
+              <ShieldCheck size={28} className="text-primary" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.5em] text-zinc-500 text-center">Protocoles de Sécurité B-right Diamond</span>
             </div>
           </div>
         </div>
       </main>
     </div>
   );
-}
-
-function Brain(props: any) {
-  return <Sparkles {...props} />
-}
-
-function Moon(props: any) {
-  return <Heart {...props} />
 }

@@ -20,25 +20,25 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black relative overflow-hidden px-4">
-      {/* Cinematic Background Orbs */}
-      <div className="absolute top-0 -left-40 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] animate-pulse" />
-      <div className="absolute bottom-0 -right-40 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] animate-pulse delay-1000" />
+    <div className="min-h-screen flex items-center justify-center bg-[#050505] relative overflow-hidden px-6">
+      {/* Immersive Luxury Orbs */}
+      <div className="absolute top-0 -left-60 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[200px] animate-pulse" />
+      <div className="absolute bottom-0 -right-60 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[200px] animate-pulse delay-1000" />
 
-      <Card className="w-full max-w-lg border border-primary/20 shadow-[0_0_80px_rgba(255,215,0,0.1)] rounded-[3rem] bg-zinc-900/60 backdrop-blur-3xl z-10 animate-in fade-in zoom-in duration-1000 overflow-hidden">
-        <div className="h-2 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
+      <Card className="w-full max-w-2xl border border-primary/20 shadow-[0_0_100px_rgba(212,175,55,0.15)] rounded-[4rem] bg-zinc-900/40 backdrop-blur-3xl z-10 animate-in fade-in zoom-in duration-1000 overflow-hidden p-8 md:p-12">
+        <div className="h-2.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-40 mb-12" />
         
-        <CardHeader className="space-y-6 text-center pt-14 px-12">
+        <CardHeader className="space-y-10 text-center pb-12">
           <div className="flex justify-center">
-            <div className="w-20 h-20 bg-primary rounded-[2rem] flex items-center justify-center text-black shadow-[0_15px_40px_rgba(255,215,0,0.3)] rotate-12 hover:rotate-0 transition-transform duration-500">
-              <Crown size={40} />
+            <div className="w-24 h-24 bg-primary rounded-[2.5rem] flex items-center justify-center text-black shadow-[0_20px_50px_rgba(212,175,55,0.4)] rotate-12 hover:rotate-0 transition-all duration-[1200ms] cursor-pointer">
+              <Crown size={48} />
             </div>
           </div>
-          <div className="space-y-3">
-            <CardTitle className="text-4xl md:text-5xl font-headline font-bold tracking-tighter luxury-gold-gradient uppercase">
+          <div className="space-y-4">
+            <CardTitle className="text-5xl md:text-7xl font-headline font-bold tracking-tighter luxury-gold-gradient uppercase">
               {isLogin ? 'Accès Privé' : 'Cercle B-right'}
             </CardTitle>
-            <CardDescription className="text-lg text-zinc-500 font-medium">
+            <CardDescription className="text-xl text-zinc-500 font-medium tracking-wide">
               {isLogin 
                 ? 'Veuillez présenter vos identifiants de prestige.' 
                 : 'Intégrez la nouvelle élite du bien-être global.'}
@@ -46,25 +46,25 @@ export default function LoginPage() {
           </div>
         </CardHeader>
 
-        <CardContent className="space-y-8 px-12 pb-10">
-          <form onSubmit={handleAuth} className="grid gap-6">
-            <div className="grid gap-3">
-              <Label htmlFor="email" className="text-zinc-500 text-xs uppercase tracking-widest font-bold ml-1">Email Membre</Label>
+        <CardContent className="space-y-12">
+          <form onSubmit={handleAuth} className="grid gap-10">
+            <div className="grid gap-4">
+              <Label htmlFor="email" className="text-zinc-600 text-xs uppercase tracking-[0.4em] font-bold ml-2">Email Membre</Label>
               <Input 
                 id="email" 
                 type="email" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="vip@b-right.com" 
-                className="rounded-2xl border-white/5 bg-white/5 h-16 px-6 focus:border-primary/40 focus:ring-0 transition-all text-lg placeholder:text-zinc-700" 
+                className="rounded-[2rem] border-white/5 bg-white/5 h-20 px-8 focus:border-primary/40 focus:ring-0 transition-all text-xl placeholder:text-zinc-800" 
                 required
               />
             </div>
-            <div className="grid gap-3">
-              <div className="flex items-center justify-between ml-1">
-                <Label htmlFor="password" className="text-zinc-500 text-xs uppercase tracking-widest font-bold">Clé d'Accès</Label>
+            <div className="grid gap-4">
+              <div className="flex items-center justify-between ml-2">
+                <Label htmlFor="password" className="text-zinc-600 text-xs uppercase tracking-[0.4em] font-bold">Clé d'Accès</Label>
                 {isLogin && (
-                  <Button variant="link" className="px-0 font-bold text-primary text-[10px] uppercase tracking-tighter">Oubliée ?</Button>
+                  <Button variant="link" className="px-0 font-bold text-primary text-[11px] uppercase tracking-[0.3em]">Oubliée ?</Button>
                 )}
               </div>
               <Input 
@@ -72,41 +72,41 @@ export default function LoginPage() {
                 type="password" 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="rounded-2xl border-white/5 bg-white/5 h-16 px-6 focus:border-primary/40 focus:ring-0 transition-all text-lg" 
+                className="rounded-[2rem] border-white/5 bg-white/5 h-20 px-8 focus:border-primary/40 focus:ring-0 transition-all text-xl" 
                 required
               />
             </div>
             
-            <Button type="submit" className="w-full h-16 rounded-full bg-primary hover:bg-white text-black text-lg font-bold shadow-[0_10px_30px_rgba(255,215,0,0.2)] transition-all active:scale-[0.98] mt-4 uppercase tracking-[0.2em]">
-              {isLogin ? 'Entrer au Club' : 'Créer mon Profil'} <ArrowRight className="ml-3" size={20} />
+            <Button type="submit" className="w-full h-20 rounded-full bg-primary hover:bg-white text-black text-xl font-bold shadow-[0_15px_40px_rgba(212,175,55,0.3)] transition-all active:scale-[0.97] mt-6 uppercase tracking-[0.3em]">
+              {isLogin ? 'Entrer au Club' : 'Créer mon Profil'} <ArrowRight className="ml-5" size={24} />
             </Button>
           </form>
 
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t border-white/5" />
+              <span className="w-full border-t border-white/10" />
             </div>
-            <div className="relative flex justify-center text-[10px] uppercase tracking-[0.3em] font-bold">
-              <span className="bg-zinc-900 px-4 text-zinc-600">Authentification Sécurisée</span>
+            <div className="relative flex justify-center text-[12px] uppercase tracking-[0.5em] font-bold">
+              <span className="bg-[#121212] px-6 text-zinc-700">Sécurité Diamond</span>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <Button variant="outline" className="rounded-2xl h-14 border-white/5 bg-white/5 hover:bg-white/10 text-zinc-400 font-bold uppercase text-[10px] tracking-widest">
-              <Github className="mr-3 text-primary" size={18} /> GitHub
+          <div className="grid grid-cols-2 gap-8">
+            <Button variant="outline" className="rounded-[2rem] h-16 border-white/5 bg-white/5 hover:bg-white/10 text-zinc-500 font-bold uppercase text-[11px] tracking-[0.4em]">
+              <Github className="mr-4 text-primary" size={20} /> GitHub
             </Button>
-            <Button variant="outline" className="rounded-2xl h-14 border-white/5 bg-white/5 hover:bg-white/10 text-zinc-400 font-bold uppercase text-[10px] tracking-widest">
-              <Mail className="mr-3 text-primary" size={18} /> Google
+            <Button variant="outline" className="rounded-[2rem] h-16 border-white/5 bg-white/5 hover:bg-white/10 text-zinc-500 font-bold uppercase text-[11px] tracking-[0.4em]">
+              <Mail className="mr-4 text-primary" size={20} /> Google
             </Button>
           </div>
         </CardContent>
 
-        <CardFooter className="pb-14 pt-4 px-12 justify-center border-t border-white/5">
-          <p className="text-xs text-zinc-500 font-bold tracking-widest uppercase">
+        <CardFooter className="pb-16 pt-8 justify-center border-t border-white/5">
+          <p className="text-sm text-zinc-600 font-bold tracking-[0.4em] uppercase">
             {isLogin ? 'Pas encore membre ?' : 'Déjà au cercle ?'}
             <button 
               onClick={() => setIsLogin(!isLogin)}
-              className="ml-2 text-primary hover:underline transition-all"
+              className="ml-4 text-primary hover:underline transition-all"
             >
               {isLogin ? 'Demander une invitation' : 'S\'identifier'}
             </button>
@@ -114,9 +114,9 @@ export default function LoginPage() {
         </CardFooter>
       </Card>
 
-      <div className="absolute bottom-10 flex items-center gap-3 text-zinc-800 animate-pulse">
-        <ShieldCheck size={16} />
-        <span className="text-[9px] uppercase tracking-[0.4em] font-bold">Protocole de sécurité B-right Élite</span>
+      <div className="absolute bottom-16 flex items-center gap-6 text-zinc-900 animate-pulse">
+        <ShieldCheck size={20} />
+        <span className="text-[11px] uppercase tracking-[0.6em] font-bold">Protocole de sécurité B-right Élite</span>
       </div>
     </div>
   );
