@@ -7,10 +7,19 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Sparkles, ArrowRight, Github, Mail } from 'lucide-react';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
   const [isLogin, setIsLogin] = useState(true);
+  const [email, setEmail] = useState('hello@b-right.com');
+  const [password, setPassword] = useState('password123');
+  const router = useRouter();
+
+  const handleAuth = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Simulation de connexion : on redirige simplement vers l'accueil
+    router.push('/');
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50 relative overflow-hidden px-4">
@@ -18,7 +27,7 @@ export default function LoginPage() {
       <div className="absolute top-0 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-0 -right-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse delay-700" />
 
-      <Card className="w-full max-w-md border-none shadow-2xl rounded-[2.5rem] bg-white/80 backdrop-blur-xl z-10">
+      <Card className="w-full max-w-md border-none shadow-2xl rounded-[2.5rem] bg-white/80 backdrop-blur-xl z-10 animate-in fade-in zoom-in duration-500">
         <CardHeader className="space-y-4 text-center pt-10">
           <div className="flex justify-center">
             <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center text-white shadow-xl shadow-primary/20">
@@ -31,16 +40,24 @@ export default function LoginPage() {
             </CardTitle>
             <CardDescription className="text-lg">
               {isLogin 
-                ? 'Continuez votre transformation aujourd\'hui.' 
+                ? 'Accédez à votre espace transformation.' 
                 : 'Commencez votre voyage vers un meilleur vous.'}
             </CardDescription>
           </div>
         </CardHeader>
         <CardContent className="space-y-6 px-8">
-          <div className="grid gap-4">
+          <form onSubmit={handleAuth} className="grid gap-4">
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="nom@exemple.com" className="rounded-xl border-slate-200 h-12" />
+              <Input 
+                id="email" 
+                type="email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="nom@exemple.com" 
+                className="rounded-xl border-slate-200 h-12" 
+                required
+              />
             </div>
             <div className="grid gap-2">
               <div className="flex items-center justify-between">
@@ -49,21 +66,26 @@ export default function LoginPage() {
                   <Button variant="link" className="px-0 font-semibold text-primary text-xs">Oublié ?</Button>
                 )}
               </div>
-              <Input id="password" type="password" className="rounded-xl border-slate-200 h-12" />
+              <Input 
+                id="password" 
+                type="password" 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="rounded-xl border-slate-200 h-12" 
+                required
+              />
             </div>
             {!isLogin && (
                <div className="grid gap-2">
                 <Label htmlFor="confirm">Confirmer le mot de passe</Label>
-                <Input id="confirm" type="password" className="rounded-xl border-slate-200 h-12" />
+                <Input id="confirm" type="password" className="rounded-xl border-slate-200 h-12" required />
               </div>
             )}
-          </div>
-          
-          <Link href="/">
-            <Button className="w-full h-14 rounded-2xl bg-primary hover:bg-primary/90 text-lg font-bold shadow-lg shadow-primary/20 transition-all active:scale-[0.98] mt-4">
+            
+            <Button type="submit" className="w-full h-14 rounded-2xl bg-primary hover:bg-primary/90 text-lg font-bold shadow-lg shadow-primary/20 transition-all active:scale-[0.98] mt-4">
               {isLogin ? 'Se connecter' : 'Créer un compte'} <ArrowRight className="ml-2" size={20} />
             </Button>
-          </Link>
+          </form>
 
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
