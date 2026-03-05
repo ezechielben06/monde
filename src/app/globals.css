@@ -24,7 +24,7 @@
     --border: 0 0% 10%;
     --input: 0 0% 10%;
     --ring: 43 70% 50%;
-    --radius: 1rem;
+    --radius: 1.5rem;
   }
 }
 
@@ -54,14 +54,10 @@
   100% { background-position: 0% 50%; }
 }
 
-.glass-dark {
-  @apply bg-black/40 backdrop-blur-3xl border border-white/5;
-}
-
 .soft-reveal {
   opacity: 0;
-  transform: translateY(20px);
-  animation: reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: translateY(30px);
+  animation: reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes reveal {
@@ -70,7 +66,7 @@
 
 /* Custom Scrollbar Lux */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
   @apply bg-black;
@@ -80,5 +76,5 @@
 }
 
 .shadow-3xl {
-  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.7), 0 30px 60px -30px rgba(212, 175, 55, 0.1);
+  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.7), 0 30px 60px -30px rgba(212, 175, 55, 0.08);
 }

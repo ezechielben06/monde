@@ -1,52 +1,76 @@
 {
   "placeholderImages": [
     {
-      "id": "luxury-logo",
-      "description": "Logo Monde de Transformation en or sur fond noir",
-      "imageUrl": "https://picsum.photos/seed/logo-gold/600/600",
+      "id": "luxury-splash",
+      "description": "Logo Monde de Transformation en or scintillant sur fond noir profond",
+      "imageUrl": "https://picsum.photos/seed/gold-logo-main/800/800",
       "imageHint": "gold logo"
     },
     {
-      "id": "beauty-hair-long",
-      "description": "Coiffure de luxe cheveux longs",
-      "imageUrl": "https://picsum.photos/seed/hair-long/600/800",
-      "imageHint": "luxury hair"
+      "id": "beauty-hair",
+      "description": "Coiffure de luxe, tresses artistiques et perruques de prestige",
+      "imageUrl": "https://picsum.photos/seed/beauty-hair/800/1000",
+      "imageHint": "luxury hairstyle"
     },
     {
-      "id": "fitness-coach",
-      "description": "Coach personnel dans une salle privée",
-      "imageUrl": "https://picsum.photos/seed/coach1/800/600",
-      "imageHint": "fitness coach"
+      "id": "beauty-nails",
+      "description": "Nail art sophistiqué or et noir, manucure de luxe",
+      "imageUrl": "https://picsum.photos/seed/beauty-nails/800/800",
+      "imageHint": "luxury nails"
     },
     {
-      "id": "nutrition-gourmet",
-      "description": "Plat gastronomique équilibré",
-      "imageUrl": "https://picsum.photos/seed/gourmet1/800/600",
+      "id": "beauty-makeup",
+      "description": "Maquillage professionnel haute couture pour événement",
+      "imageUrl": "https://picsum.photos/seed/makeup-pro/800/800",
+      "imageHint": "fashion makeup"
+    },
+    {
+      "id": "beauty-face",
+      "description": "Soin du visage avancé, masque hydratant premium",
+      "imageUrl": "https://picsum.photos/seed/face-care/800/800",
+      "imageHint": "spa facial"
+    },
+    {
+      "id": "hiit-workout",
+      "description": "Séance de fitness intensive dans une salle de sport privée luxueuse",
+      "imageUrl": "https://picsum.photos/seed/gym-luxury/1000/600",
+      "imageHint": "luxury gym"
+    },
+    {
+      "id": "yoga-stretch",
+      "description": "Séance de yoga sérénité sur terrasse avec vue",
+      "imageUrl": "https://picsum.photos/seed/yoga-vip/1000/600",
+      "imageHint": "luxury yoga"
+    },
+    {
+      "id": "healthy-meal",
+      "description": "Plat gastronomique équilibré, présentation artistique",
+      "imageUrl": "https://picsum.photos/seed/gourmet-diet/800/600",
       "imageHint": "gourmet healthy"
     },
     {
       "id": "shopping-fashion",
-      "description": "Robes de haute couture sur mannequin",
-      "imageUrl": "https://picsum.photos/seed/fashion1/600/800",
-      "imageHint": "fashion luxury"
+      "description": "Boutique de luxe, vêtements de créateurs sur cintres dorés",
+      "imageUrl": "https://picsum.photos/seed/luxury-shop/800/1000",
+      "imageHint": "luxury fashion"
     },
     {
-      "id": "shopping-accessories",
-      "description": "Montres et bijoux de luxe",
-      "imageUrl": "https://picsum.photos/seed/jewelry1/600/600",
-      "imageHint": "luxury jewelry"
-    },
-    {
-      "id": "ai-avatar",
-      "description": "Avatar IA réaliste pour essayage virtuel",
-      "imageUrl": "https://picsum.photos/seed/avatar1/600/800",
+      "id": "ai-avatar-tryon",
+      "description": "Avatar numérique IA pour essayage virtuel de vêtements",
+      "imageUrl": "https://picsum.photos/seed/ai-avatar/600/800",
       "imageHint": "ai avatar"
     },
     {
+      "id": "coaching-meditation",
+      "description": "Séance de coaching mental et méditation guidée",
+      "imageUrl": "https://picsum.photos/seed/mind-coach/800/600",
+      "imageHint": "meditation coach"
+    },
+    {
       "id": "tracking-evolution",
-      "description": "Graphique de progression fitness élégant",
-      "imageUrl": "https://picsum.photos/seed/tracking1/800/400",
-      "imageHint": "data chart"
+      "description": "Graphique de performance athlétique sur tablette de luxe",
+      "imageUrl": "https://picsum.photos/seed/data-pro/800/400",
+      "imageHint": "data analysis"
     }
   ]
 }
