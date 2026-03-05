@@ -18,18 +18,20 @@ const PRODUCTS = [
 ];
 
 export default function ShoppingPage() {
+  const defaultImg = "https://picsum.photos/seed/shopping/800/1000";
+
   return (
     <div className="min-h-screen pb-32 md:pb-0 md:pt-28 bg-[#050505] text-white">
       <Navbar />
       <main className="max-w-[1400px] mx-auto px-8 md:px-16 py-16 space-y-32">
         <header className="flex flex-col md:flex-row md:items-end justify-between gap-16 soft-reveal">
           <div className="space-y-12">
-            <Badge className="bg-primary/10 text-primary border-primary/30 px-10 py-3 uppercase text-[10px] tracking-[0.6em] font-bold rounded-full">Luxury Shopping & IA</Badge>
-            <h1 className="text-8xl md:text-[10rem] font-serif luxury-gold-gradient tracking-tighter leading-[0.8] font-bold">La Boutique <br/> des Maîtres.</h1>
-            <p className="text-3xl text-zinc-500 font-light max-w-4xl italic leading-relaxed">Une sélection pointue de pièces d'exception, sublimée par l'innovation.</p>
+            <Badge variant="outline" className="border-primary/40 text-primary px-10 py-3 uppercase text-[10px] tracking-[0.6em] font-bold rounded-full">Luxury Shopping & IA</Badge>
+            <h1 className="text-8xl md:text-[10rem] font-serif luxury-gold-gradient tracking-tighter leading-[0.8] font-bold uppercase">La Boutique <br/> des Maîtres.</h1>
+            <p className="text-3xl text-zinc-500 font-light max-w-4xl italic leading-relaxed">Une sélection pointue de pièces d'exception, sublimée par l'innovation de notre conciergerie.</p>
           </div>
           <Link href="/services/shopping/virtual-try-on">
-            <Button size="lg" className="bg-white text-black hover:bg-primary rounded-full px-16 h-24 font-bold uppercase tracking-[0.5em] shadow-3xl transition-all group">
+            <Button size="lg" className="bg-white text-black hover:bg-primary rounded-full px-16 h-24 font-bold uppercase tracking-[0.5em] shadow-3xl transition-all group border-none">
               <Camera size={24} className="mr-6 group-hover:rotate-12 transition-transform" /> Essayage Virtuel IA
             </Button>
           </Link>
@@ -40,16 +42,16 @@ export default function ShoppingPage() {
             <Card key={product.id} className="group relative overflow-hidden border-white/5 bg-zinc-900/20 rounded-[3rem] transition-all hover:border-primary/40 shadow-2xl">
               <div className="relative aspect-[3/4] overflow-hidden">
                 <Image 
-                  src={PlaceHolderImages.find(p => p.id === product.img)?.imageUrl || ""}
+                  src={PlaceHolderImages.find(p => p.id === product.img)?.imageUrl || defaultImg}
                   alt={product.title}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-[4000ms] grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100"
                 />
                 <div className="absolute top-10 left-10">
-                  <Badge className="bg-primary text-black font-bold uppercase text-[9px] px-6 py-2 rounded-full tracking-[0.3em] shadow-lg">{product.badge}</Badge>
+                  <Badge className="bg-primary text-black font-bold uppercase text-[9px] px-6 py-2 rounded-full tracking-[0.3em] shadow-lg border-none">{product.badge}</Badge>
                 </div>
                 <div className="absolute inset-0 bg-black/60 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                  <Button size="icon" className="rounded-full bg-white text-black hover:bg-primary w-20 h-20 shadow-2xl">
+                  <Button size="icon" className="rounded-full bg-white text-black hover:bg-primary w-20 h-20 shadow-2xl border-none">
                     <ShoppingCart size={30} />
                   </Button>
                   <Button size="icon" className="rounded-full bg-zinc-900/80 text-primary hover:bg-white hover:text-black w-20 h-20 border border-white/10 shadow-2xl">
@@ -59,7 +61,7 @@ export default function ShoppingPage() {
               </div>
               <div className="p-12 space-y-4">
                 <p className="text-primary text-[10px] font-bold uppercase tracking-[0.5em]">{product.category}</p>
-                <h3 className="text-3xl font-serif font-bold group-hover:text-primary transition-colors">{product.title}</h3>
+                <h3 className="text-3xl font-serif font-bold group-hover:text-primary transition-colors leading-tight">{product.title}</h3>
                 <p className="text-2xl font-bold luxury-gold-gradient">{product.price}</p>
               </div>
             </Card>
@@ -69,7 +71,7 @@ export default function ShoppingPage() {
         <section className="bg-zinc-900/60 rounded-[4rem] p-24 border border-white/5 relative overflow-hidden shadow-3xl flex flex-col md:flex-row items-center gap-24 group">
           <div className="relative w-full md:w-[600px] aspect-[16/9] rounded-[3rem] overflow-hidden shadow-2xl">
             <Image 
-              src={PlaceHolderImages.find(p => p.id === 'ai-avatar-tryon')?.imageUrl || ""} 
+              src={PlaceHolderImages.find(p => p.id === 'ai-avatar-tryon')?.imageUrl || defaultImg} 
               alt="AI Tryon" 
               fill 
               className="object-cover group-hover:scale-105 transition-transform duration-[3000ms]" 
@@ -78,11 +80,11 @@ export default function ShoppingPage() {
           <div className="space-y-12 flex-1 text-center md:text-left">
             <div className="space-y-6">
               <Gem className="text-primary mx-auto md:mx-0 animate-pulse" size={48} />
-              <h2 className="text-6xl font-serif font-bold leading-tight uppercase">Miroir Virtuel <br/> Révolutionnaire.</h2>
-              <p className="text-zinc-500 text-2xl font-light italic leading-relaxed">Créez votre avatar 3D et essayez nos collections en temps réel. Visualisez chaque détail à 360° avant votre acquisition.</p>
+              <h2 className="text-6xl font-serif font-bold leading-tight uppercase">Miroir Virtuel <br/> <span className="luxury-gold-gradient">Révolutionnaire</span>.</h2>
+              <p className="text-zinc-500 text-2xl font-light italic leading-relaxed">Créez votre avatar 3D et essayez nos collections en temps réel. Visualisez chaque détail à 360° avant votre acquisition impériale.</p>
             </div>
             <Link href="/services/shopping/virtual-try-on">
-              <Button size="lg" className="rounded-full px-20 bg-primary text-black font-bold uppercase tracking-[0.4em] shadow-2xl text-xl hover:scale-105 transition-all">
+              <Button size="lg" className="rounded-full px-20 bg-primary text-black font-bold uppercase tracking-[0.4em] shadow-2xl text-xl hover:scale-105 transition-all h-20 border-none">
                 Démarrer l'Expérience IA
               </Button>
             </Link>
