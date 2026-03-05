@@ -2,13 +2,63 @@ import { Navbar } from '@/components/layout/Navbar';
 import { StatCard } from '@/components/dashboard/StatCard';
 import { AIRecommender } from '@/components/dashboard/AIRecommender';
 import { ActivityChart } from '@/components/dashboard/ActivityChart';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Flame, Heart, Trophy, Zap, Star, Crown, ShieldCheck, ArrowRight, Calendar, Sparkles } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/components/ui/card';
+import { Flame, Heart, Trophy, Zap, Star, Crown, ShieldCheck, ArrowRight, Calendar, Sparkles, Check, Gem } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+
+const PRICING_PLANS = [
+  {
+    name: "Cercle Éclat",
+    price: "25,000",
+    period: "par mois",
+    description: "L'essentiel de la transformation pour les esprits en quête d'harmonie.",
+    features: [
+      "Accès illimité aux installations",
+      "Bilan vitalité trimestriel",
+      "Assistant IA personnalisé",
+      "Accès à la bibliothèque de savoir",
+      "2 séances collectives par semaine"
+    ],
+    isPopular: false,
+    cta: "Commencer l'ascension"
+  },
+  {
+    name: "Cercle Impérial",
+    price: "45,000",
+    period: "par mois",
+    description: "L'expérience B-right complète pour une excellence sans compromis.",
+    features: [
+      "Tout le Cercle Éclat",
+      "Coaching privé mensuel",
+      "Accès Prioritaire aux soins Spa",
+      "Programme nutritionnel sur mesure",
+      "Invitations aux événements VIP",
+      "Conciergerie bien-être 7j/7"
+    ],
+    isPopular: true,
+    cta: "Rejoindre l'élite"
+  },
+  {
+    name: "Cercle Diamond",
+    price: "120,000",
+    period: "par mois",
+    description: "L'ultime privilège. Une transformation totale pilotée par des maîtres.",
+    features: [
+      "Tout le Cercle Impérial",
+      "Entraîneur privé dédié illimité",
+      "Soin signature hebdomadaire",
+      "Accès exclusif au Salon Privé",
+      "Services de chauffeur privé",
+      "Protocole de régénération avancé"
+    ],
+    isPopular: false,
+    cta: "Incarner la légende"
+  }
+];
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-wellness');
@@ -55,7 +105,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Exclusive Stats Grid - More Air */}
+        {/* Exclusive Stats Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 soft-reveal [animation-delay:200ms]">
           <StatCard 
             label="Énergie Vitale" 
@@ -87,18 +137,71 @@ export default function Home() {
           />
         </div>
 
-        {/* AI & Analytics Section - Layout Adjusted */}
+        {/* PRICING SECTION: Cercles d'Excellence */}
+        <section className="space-y-24 soft-reveal">
+          <div className="text-center space-y-6 max-w-4xl mx-auto">
+            <Badge variant="outline" className="border-primary/30 text-primary px-8 py-2 rounded-full font-bold tracking-[0.4em] uppercase text-[10px]">Adhésion Exclusive</Badge>
+            <h2 className="text-6xl md:text-8xl font-headline font-bold tracking-tighter">Les Cercles <br/><span className="luxury-gold-gradient">d'Excellence</span></h2>
+            <p className="text-zinc-500 text-xl font-light leading-relaxed">Choisissez le degré d'accompagnement qui sied à votre ambition. Une transformation sans limites vous attend.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+            {PRICING_PLANS.map((plan, i) => (
+              <Card key={i} className={`relative overflow-hidden transition-all duration-[1200ms] rounded-[4rem] group border-white/5 bg-zinc-900/20 backdrop-blur-xl ${plan.isPopular ? 'border-primary/40 shadow-[0_0_80px_rgba(212,175,55,0.15)] scale-105' : 'hover:border-primary/20 shadow-2xl'}`}>
+                {plan.isPopular && (
+                  <div className="absolute top-10 right-10">
+                    <Badge className="bg-primary text-black font-bold uppercase tracking-widest text-[9px] px-4 py-1.5 rounded-full">Plus Prisé</Badge>
+                  </div>
+                )}
+                <CardHeader className="p-12 space-y-6 text-center">
+                  <div className="flex justify-center">
+                    <div className="w-20 h-20 rounded-3xl bg-zinc-900 border border-white/10 flex items-center justify-center text-primary group-hover:scale-110 group-hover:rotate-6 transition-all duration-1000 shadow-inner">
+                      {plan.name === "Cercle Diamond" ? <Gem size={32} /> : plan.name === "Cercle Impérial" ? <Crown size={32} /> : <Star size={32} />}
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <CardTitle className="text-4xl font-headline font-bold uppercase tracking-tight">{plan.name}</CardTitle>
+                    <CardDescription className="text-zinc-500 font-medium italic">{plan.description}</CardDescription>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-12 space-y-12">
+                  <div className="text-center space-y-1">
+                    <span className="text-6xl font-headline font-bold luxury-gold-gradient">{plan.price}</span>
+                    <span className="block text-xs text-zinc-600 font-bold uppercase tracking-[0.4em]">{plan.period}</span>
+                  </div>
+                  <div className="space-y-6">
+                    {plan.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center gap-4 group/item">
+                        <div className="w-6 h-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0 group-hover/item:bg-primary group-hover/item:text-black transition-all duration-500">
+                          <Check size={12} strokeWidth={4} />
+                        </div>
+                        <span className="text-sm text-zinc-400 font-medium tracking-wide group-hover/item:text-white transition-colors">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+                <CardFooter className="p-12 pt-0">
+                  <Button className={`w-full py-10 rounded-full font-bold text-lg uppercase tracking-[0.3em] transition-all duration-1000 shadow-2xl ${plan.isPopular ? 'bg-primary text-black hover:bg-white' : 'bg-white/5 text-white hover:bg-primary hover:text-black border border-white/10'}`}>
+                    {plan.cta}
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* AI & Analytics Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8 space-y-24">
-            <div className="soft-reveal [animation-delay:400ms]">
+            <div className="soft-reveal">
               <AIRecommender />
             </div>
-            <div className="soft-reveal [animation-delay:600ms]">
+            <div className="soft-reveal">
               <ActivityChart />
             </div>
 
             {/* Premium Planning Card */}
-            <Card className="premium-card soft-reveal [animation-delay:800ms]">
+            <Card className="premium-card soft-reveal">
               <CardHeader className="flex flex-row items-center justify-between p-16 border-b border-white/5">
                 <div className="space-y-2">
                   <CardTitle className="text-5xl font-headline font-bold tracking-tighter">Votre Agenda VIP</CardTitle>
@@ -134,9 +237,9 @@ export default function Home() {
             </Card>
           </div>
 
-          {/* Sidebar - Proportions Adjusted */}
+          {/* Sidebar */}
           <div className="lg:col-span-4 space-y-16">
-            <Card className="bg-zinc-900/40 border border-primary/20 shadow-[0_40px_80px_rgba(0,0,0,0.6)] rounded-[4rem] overflow-hidden relative soft-reveal [animation-delay:1000ms]">
+            <Card className="bg-zinc-900/40 border border-primary/20 shadow-[0_40px_80px_rgba(0,0,0,0.6)] rounded-[4rem] overflow-hidden relative soft-reveal">
               <div className="absolute top-0 right-0 p-12 opacity-[0.03] rotate-12">
                 <Crown size={300} />
               </div>
@@ -161,7 +264,7 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="premium-card p-16 soft-reveal [animation-delay:1200ms]">
+            <Card className="premium-card p-16 soft-reveal">
               <div className="flex items-center justify-between mb-12">
                 <h3 className="text-3xl font-headline font-bold tracking-tighter">Le Salon Privé</h3>
                 <div className="flex items-center gap-3">
