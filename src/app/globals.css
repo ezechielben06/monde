@@ -23,7 +23,7 @@
     --border: 0 0% 10%;
     --input: 0 0% 10%;
     --ring: 43 70% 50%;
-    --radius: 1.5rem;
+    --radius: 1rem;
   }
 }
 
@@ -32,7 +32,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body antialiased selection:bg-primary/30;
+    @apply bg-background text-foreground font-body antialiased selection:bg-primary/30 tracking-tight;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline tracking-tighter uppercase;
@@ -53,27 +53,18 @@
   100% { background-position: 0% 50%; }
 }
 
-.gold-border {
-  border: 1px solid rgba(212, 175, 55, 0.15);
-}
-
-.gold-border-glow:hover {
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
-}
-
 .glass-dark {
-  @apply bg-black/60 backdrop-blur-3xl border border-white/5;
+  @apply bg-black/40 backdrop-blur-2xl border border-white/5;
 }
 
 .premium-card {
-  @apply bg-zinc-900/20 border border-white/5 hover:border-primary/30 transition-all duration-700 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)];
+  @apply bg-zinc-900/20 border border-white/5 hover:border-primary/20 transition-all duration-700 rounded-3xl shadow-2xl;
 }
 
 .soft-reveal {
   opacity: 0;
-  transform: translateY(20px);
-  animation: reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: translateY(15px);
+  animation: reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes reveal {
@@ -81,9 +72,20 @@
 }
 
 .section-spacing {
-  @apply py-20 md:py-28;
+  @apply py-24 md:py-32;
 }
 
 .container-padding {
-  @apply px-6 md:px-12 lg:px-20;
+  @apply px-8 md:px-16 lg:px-24;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-800 rounded-full hover:bg-primary/40 transition-colors;
 }
