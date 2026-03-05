@@ -10,35 +10,35 @@ interface StatCardProps {
     value: string;
     isUp: boolean;
   };
-  colorClass?: string;
+  className?: string;
 }
 
-export function StatCard({ label, value, subValue, icon, trend, colorClass }: StatCardProps) {
+export function StatCard({ label, value, subValue, icon, trend, className }: StatCardProps) {
   return (
     <Card className={cn(
-      "overflow-hidden border border-white/5 bg-zinc-900/40 hover:border-primary/30 transition-all duration-500 rounded-3xl group shadow-sm",
-      colorClass
+      "overflow-hidden border border-white/5 bg-zinc-900/30 hover:border-primary/40 transition-all duration-700 rounded-[2.5rem] group shadow-2xl",
+      className
     )}>
-      <CardContent className="p-8">
+      <CardContent className="p-10">
         <div className="flex justify-between items-start">
-          <div className="space-y-1">
-            <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em]">{label}</p>
-            <h3 className="text-3xl font-bold font-headline luxury-gold-gradient leading-tight">{value}</h3>
-            {subValue && <p className="text-xs text-zinc-600 font-medium italic">{subValue}</p>}
+          <div className="space-y-3">
+            <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.3em]">{label}</p>
+            <h3 className="text-4xl font-bold font-headline luxury-gold-gradient leading-none tracking-tighter">{value}</h3>
+            {subValue && <p className="text-xs text-zinc-600 font-medium italic tracking-wide">{subValue}</p>}
           </div>
-          <div className="p-3 rounded-2xl bg-zinc-800/50 group-hover:scale-110 transition-transform duration-500">
+          <div className="p-4 rounded-2xl bg-zinc-800/40 border border-white/5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-700">
             {icon}
           </div>
         </div>
         {trend && (
-          <div className="mt-6 flex items-center gap-2">
+          <div className="mt-8 flex items-center gap-3">
             <span className={cn(
-              "text-[10px] font-bold px-3 py-1 rounded-full",
-              trend.isUp ? "bg-emerald-500/10 text-emerald-500 border border-emerald-500/20" : "bg-rose-500/10 text-rose-500 border border-rose-500/20"
+              "text-[10px] font-bold px-4 py-1.5 rounded-full border",
+              trend.isUp ? "bg-primary/10 text-primary border-primary/20" : "bg-zinc-800 text-zinc-400 border-white/5"
             )}>
               {trend.isUp ? "+" : "-"}{trend.value}
             </span>
-            <span className="text-[9px] text-zinc-700 font-bold uppercase tracking-widest">Performance</span>
+            <span className="text-[9px] text-zinc-700 font-bold uppercase tracking-[0.3em]">Performance</span>
           </div>
         )}
       </CardContent>

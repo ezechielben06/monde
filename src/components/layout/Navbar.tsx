@@ -16,28 +16,28 @@ export function Navbar() {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-xl border-t border-white/5 md:top-0 md:bottom-auto md:border-b md:border-t-0 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-black shadow-[0_0_20px_rgba(255,215,0,0.3)] group-hover:scale-110 transition-transform">
-            <Crown size={22} />
+    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-3xl border-t border-white/5 md:top-0 md:bottom-auto md:border-b md:border-t-0 shadow-[0_30px_60px_rgba(0,0,0,0.8)]">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 h-24 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-4 group">
+          <div className="w-12 h-12 bg-primary rounded-[1.25rem] flex items-center justify-center text-black shadow-[0_0_30px_rgba(212,175,55,0.4)] group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+            <Crown size={26} />
           </div>
-          <span className="font-headline font-bold text-2xl tracking-tighter luxury-gold-gradient">B-right</span>
+          <span className="font-headline font-bold text-3xl tracking-tighter luxury-gold-gradient hidden sm:block">B-right</span>
         </Link>
 
-        <div className="flex flex-1 justify-around md:justify-end md:gap-10 items-center h-full ml-8">
-          <NavLink href="/" icon={<Home size={20} />} label="Palais" active={pathname === '/'} />
-          <NavLink href="/booking" icon={<Sparkles size={20} />} label="Services VIP" active={pathname === '/booking'} />
-          <NavLink href="/fitness" icon={<Dumbbell size={20} />} label="Athlète" active={pathname === '/fitness'} />
-          <NavLink href="/library" icon={<BookOpen size={20} />} label="Savoir" active={pathname === '/library'} />
-          <NavLink href="/profile" icon={<User size={20} />} label="Espace Élite" active={pathname === '/profile'} />
+        <div className="flex flex-1 justify-around md:justify-end md:gap-12 items-center h-full ml-10">
+          <NavLink href="/" icon={<Home size={22} />} label="Palais" active={pathname === '/'} />
+          <NavLink href="/booking" icon={<Sparkles size={22} />} label="Privilèges" active={pathname === '/booking'} />
+          <NavLink href="/fitness" icon={<Dumbbell size={22} />} label="Athlète" active={pathname === '/fitness'} />
+          <NavLink href="/library" icon={<BookOpen size={22} />} label="Savoir" active={pathname === '/library'} />
+          <NavLink href="/profile" icon={<User size={22} />} label="Profil Élite" active={pathname === '/profile'} />
           
           <button 
             onClick={handleLogout}
-            className="hidden md:flex items-center gap-2 text-zinc-600 hover:text-primary transition-all px-3 py-1.5 rounded-full border border-transparent hover:border-primary/20"
+            className="hidden md:flex items-center gap-3 text-zinc-500 hover:text-primary transition-all duration-500 px-5 py-2.5 rounded-full border border-transparent hover:border-primary/20 hover:bg-primary/5"
           >
-             <LogOut size={16} />
-             <span className="text-[10px] font-bold uppercase tracking-widest">Quitter</span>
+             <LogOut size={18} />
+             <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Quitter</span>
           </button>
         </div>
       </div>
@@ -48,13 +48,13 @@ export function Navbar() {
 function NavLink({ href, icon, label, active }: { href: string; icon: React.ReactNode; label: string, active?: boolean }) {
   return (
     <Link href={href} className={cn(
-      "flex flex-col md:flex-row items-center gap-1.5 md:gap-2.5 transition-all px-3 py-2 rounded-xl",
+      "flex flex-col md:flex-row items-center gap-2 md:gap-3 transition-all px-4 py-3 rounded-2xl group",
       active 
-        ? "text-primary bg-primary/5 shadow-[inset_0_0_10px_rgba(255,215,0,0.05)]" 
-        : "text-zinc-600 hover:text-white"
+        ? "text-primary bg-primary/5 shadow-[inset_0_0_20px_rgba(212,175,55,0.1)]" 
+        : "text-zinc-500 hover:text-white"
     )}>
-      <span className={cn("transition-transform duration-300", active && "scale-110")}>{icon}</span>
-      <span className="text-[9px] md:text-xs font-bold uppercase tracking-widest">{label}</span>
+      <span className={cn("transition-all duration-500 group-hover:scale-110", active && "scale-110 rotate-6")}>{icon}</span>
+      <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-[0.25em]">{label}</span>
     </Link>
   );
 }
