@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { Sparkles, Activity, User, Home, Crown, LogOut, Settings, ShoppingCart, Sun, Moon } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
 
 export function Navbar() {
   const pathname = usePathname();
@@ -45,7 +44,7 @@ export function Navbar() {
           <NavLink href="/cart" icon={<ShoppingCart size={18} />} label="Panier" active={pathname === '/cart'} />
           <NavLink href="/profile" icon={<User size={18} />} label="Profil" active={pathname === '/profile'} />
           
-          <div className="hidden md:flex items-center gap-4 pl-6 border-l border-border h-10">
+          <div className="flex items-center gap-2 md:gap-4 ml-2 md:ml-6 md:pl-6 md:border-l border-border h-10">
             <button 
               onClick={toggleTheme} 
               className="text-muted-foreground hover:text-primary transition-colors p-2 rounded-full hover:bg-primary/10"
@@ -53,12 +52,14 @@ export function Navbar() {
             >
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <button onClick={() => router.push('/settings')} className="text-muted-foreground hover:text-primary transition-colors">
-              <Settings size={20} />
-            </button>
-            <button onClick={() => router.push('/login')} className="text-muted-foreground hover:text-destructive transition-colors">
-              <LogOut size={20} />
-            </button>
+            <div className="hidden md:flex items-center gap-4">
+              <button onClick={() => router.push('/settings')} className="text-muted-foreground hover:text-primary transition-colors p-2">
+                <Settings size={20} />
+              </button>
+              <button onClick={() => router.push('/login')} className="text-muted-foreground hover:text-destructive transition-colors p-2">
+                <LogOut size={20} />
+              </button>
+            </div>
           </div>
         </div>
       </div>

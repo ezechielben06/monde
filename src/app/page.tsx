@@ -41,15 +41,15 @@ export default function OnboardingPage() {
 
   if (screen === 'splash') {
     return (
-      <div className="min-h-screen bg-black flex flex-col items-center justify-center relative overflow-hidden p-6 text-center">
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center relative overflow-hidden p-6 text-center">
         <div className="absolute inset-0 bg-primary/10 blur-[180px] animate-pulse" />
         <div className="relative z-10 flex flex-col items-center gap-10 md:gap-16 animate-in fade-in zoom-in duration-1000">
-          <div className="w-32 h-32 md:w-48 md:h-48 bg-primary rounded-[2rem] flex items-center justify-center text-black shadow-[0_0_80px_rgba(212,175,55,0.6)] rotate-12">
-            <Crown className="w-16 h-16 md:w-24 md:h-24" />
+          <div className="w-32 h-32 md:w-48 md:h-48 bg-primary rounded-[2rem] flex items-center justify-center text-primary-foreground shadow-[0_0_80px_rgba(212,175,55,0.6)] rotate-12">
+            <Crown size={64} />
           </div>
           <div className="space-y-4">
             <h1 className="text-3xl md:text-6xl font-serif luxury-gold-gradient tracking-tighter uppercase leading-none">Monde de <br/> Transformation</h1>
-            <p className="text-zinc-500 font-bold uppercase tracking-[0.5em] text-[8px] md:text-xs">Excellence & Prestige Absolu</p>
+            <p className="text-muted-foreground font-bold uppercase tracking-[0.5em] text-[8px] md:text-xs">Excellence & Prestige Absolu</p>
           </div>
         </div>
       </div>
@@ -60,21 +60,25 @@ export default function OnboardingPage() {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 md:p-12">
         <div className="max-w-4xl w-full space-y-12 md:space-y-20 text-center soft-reveal">
-          <Globe className="text-primary mx-auto animate-bounce w-12 h-12 md:w-16 md:h-16" />
+          <Globe className="text-primary mx-auto animate-bounce" size={48} />
           <h2 className="text-4xl md:text-7xl font-serif luxury-gold-gradient leading-tight">Choisissez <br/> votre langue</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-6">
             {['Français', 'English', 'Español', 'Deutsch', 'Italiano', 'Português', 'Русский', '中文', '日本語', '한국어', 'हिन्दी'].map((lang) => (
-              <Button 
+              <button 
                 key={lang} 
-                variant={language === lang ? 'default' : 'outline'}
                 onClick={() => setLanguage(lang)}
-                className={`rounded-2xl h-14 md:h-16 text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all ${language === lang ? 'bg-primary scale-105' : 'border-border hover:border-primary/40'}`}
+                className={cn(
+                  "rounded-2xl h-14 md:h-16 text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all border",
+                  language === lang 
+                    ? "bg-primary text-primary-foreground border-primary scale-105" 
+                    : "border-border hover:border-primary/40 text-muted-foreground"
+                )}
               >
                 {lang}
-              </Button>
+              </button>
             ))}
           </div>
-          <Button size="lg" onClick={() => setScreen('currency')} className="w-full md:w-fit px-12 md:px-24 h-16 md:h-20 rounded-full bg-primary text-primary-foreground font-bold uppercase tracking-widest shadow-2xl hover:scale-105 transition-all">
+          <Button size="lg" onClick={() => setScreen('currency')} className="w-full md:w-fit px-12 md:px-24 rounded-full font-bold uppercase tracking-widest shadow-2xl">
             Continuer
           </Button>
         </div>
@@ -86,7 +90,7 @@ export default function OnboardingPage() {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 md:p-12">
         <div className="max-w-4xl w-full space-y-12 md:space-y-20 text-center soft-reveal">
-          <Banknote className="text-primary mx-auto animate-pulse w-12 h-12 md:w-16 md:h-16" />
+          <Banknote className="text-primary mx-auto animate-pulse" size={48} />
           <h2 className="text-4xl md:text-7xl font-serif luxury-gold-gradient leading-tight">Choisissez <br/> votre monnaie</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-6">
             {[
@@ -94,17 +98,21 @@ export default function OnboardingPage() {
               'Livre Sterling (GBP)', 'Yuan (CNY)', 'Yen (JPY)', 
               'Won Coréen (KRW)', 'Roupie Indienne (INR)', 'Real Brésilien (BRL)'
             ].map((curr) => (
-              <Button 
+              <button 
                 key={curr} 
-                variant={currency === curr ? 'default' : 'outline'}
                 onClick={() => setCurrency(curr)}
-                className={`rounded-2xl h-14 md:h-16 text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all ${currency === curr ? 'bg-primary scale-105' : 'border-border hover:border-primary/40'}`}
+                className={cn(
+                  "rounded-2xl h-14 md:h-16 text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all border",
+                  currency === curr 
+                    ? "bg-primary text-primary-foreground border-primary scale-105" 
+                    : "border-border hover:border-primary/40 text-muted-foreground"
+                )}
               >
                 {curr}
-              </Button>
+              </button>
             ))}
           </div>
-          <Button size="lg" onClick={() => setScreen('main')} className="w-full md:w-fit px-12 md:px-24 h-16 md:h-20 rounded-full bg-primary text-primary-foreground font-bold uppercase tracking-widest shadow-2xl hover:scale-105 transition-all">
+          <Button size="lg" onClick={() => setScreen('main')} className="w-full md:w-fit px-12 md:px-24 rounded-full font-bold uppercase tracking-widest shadow-2xl">
             Entrer dans l'application
           </Button>
         </div>
@@ -179,40 +187,6 @@ export default function OnboardingPage() {
           </Link>
         </section>
 
-        {/* Pricing Sections */}
-        <section className="space-y-16">
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-7xl font-serif luxury-gold-gradient font-bold leading-tight">Les Cercles <br/> d'Excellence.</h2>
-            <p className="text-muted-foreground text-lg italic">Choisissez votre palier d'immersion dans le luxe absolu.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { title: "Cercle Éclat", price: "25k FCFA", period: "mois", features: ["Accès salle VIP", "1 Coaching privé/mois", "Analyse corporelle IA", "Privilèges Shopping"], badge: "Essentiel" },
-              { title: "Cercle Impérial", price: "55k FCFA", period: "mois", features: ["Accès illimité 24/7", "4 Coachings privés/mois", "Menu Nutrition sur mesure", "Conciergerie Beauté", "Miroir Virtuel IA"], badge: "Populaire", featured: true },
-              { title: "Cercle Diamond", price: "150k FCFA", period: "mois", features: ["Accès total Prestige", "Coaching quotidien privé", "Chef à domicile (2/sem)", "Soins Beauté illimités", "Essayage VIP Prioritaire"], badge: "Élite" }
-            ].map((tier, i) => (
-              <div key={i} className={`relative p-10 rounded-3xl border ${tier.featured ? 'border-primary bg-primary/5 shadow-2xl' : 'border-border bg-card/50'} space-y-8 transition-all hover:scale-[1.02] duration-500`}>
-                <div className="space-y-2">
-                  <Badge className="bg-primary text-primary-foreground font-bold uppercase text-[9px] tracking-widest">{tier.badge}</Badge>
-                  <h3 className="text-3xl font-serif font-bold">{tier.title}</h3>
-                </div>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-bold luxury-gold-gradient">{tier.price}</span>
-                  <span className="text-muted-foreground font-bold uppercase text-[10px]">/{tier.period}</span>
-                </div>
-                <ul className="space-y-4">
-                  {tier.features.map((feat, idx) => (
-                    <li key={idx} className="flex items-center gap-3 text-muted-foreground text-sm italic">
-                      <Star size={14} className="text-primary/60 shrink-0" /> {feat}
-                    </li>
-                  ))}
-                </ul>
-                <Button className={`w-full h-14 rounded-full font-bold uppercase tracking-widest ${tier.featured ? 'bg-primary text-primary-foreground' : 'bg-foreground text-background'}`}>Rejoindre le Cercle</Button>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* Heritage Section */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-20 border-t border-border">
           {[
@@ -235,3 +209,5 @@ export default function OnboardingPage() {
     </div>
   );
 }
+
+import { cn } from '@/lib/utils';
