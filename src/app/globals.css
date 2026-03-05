@@ -1,15 +1,37 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
+    --background: 40 20% 98%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 43 70% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 43 70% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 43 70% 50%;
+    --radius: 1.5rem;
+  }
+
+  .dark {
     --background: 0 0% 2%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 3%;
+    --card: 0 0% 4%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3%;
+    --popover: 0 0% 4%;
     --popover-foreground: 0 0% 98%;
     --primary: 43 70% 50%;
     --primary-foreground: 0 0% 0%;
@@ -19,12 +41,11 @@
     --muted-foreground: 0 0% 50%;
     --accent: 43 70% 50%;
     --accent-foreground: 0 0% 0%;
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 10%;
-    --input: 0 0% 10%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
     --ring: 43 70% 50%;
-    --radius: 1.5rem;
   }
 }
 
@@ -33,7 +54,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body antialiased selection:bg-primary/30 tracking-tight;
+    @apply bg-background text-foreground font-body antialiased selection:bg-primary/30 tracking-tight transition-colors duration-500;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline tracking-tighter uppercase;
@@ -64,17 +85,10 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Custom Scrollbar Lux */
-::-webkit-scrollbar {
-  width: 5px;
-}
-::-webkit-scrollbar-track {
-  @apply bg-black;
-}
-::-webkit-scrollbar-thumb {
-  @apply bg-zinc-800 rounded-full hover:bg-primary transition-colors;
+.shadow-3xl {
+  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.25), 0 30px 60px -30px rgba(212, 175, 55, 0.1);
 }
 
-.shadow-3xl {
-  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.7), 0 30px 60px -30px rgba(212, 175, 55, 0.08);
+.dark .shadow-3xl {
+  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.8), 0 30px 60px -30px rgba(212, 175, 55, 0.1);
 }
