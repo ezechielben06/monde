@@ -138,9 +138,9 @@ export default function OnboardingPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent p-8 md:p-16 flex flex-col justify-end gap-6 md:gap-8">
                 <div className="flex gap-4 mb-2 md:mb-4">
-                  <Sparkles className="w-8 h-8 md:w-10 md:h-10 text-primary" />
-                  <Utensils className="w-8 h-8 md:w-10 md:h-10 text-primary/60" />
-                  <ShoppingBag className="w-8 h-8 md:w-10 md:h-10 text-primary/40" />
+                  <Sparkles size={32} className="text-primary" />
+                  <Utensils size={32} className="text-primary/60" />
+                  <ShoppingBag size={32} className="text-primary/40" />
                 </div>
                 <div className="space-y-2 md:space-y-4">
                   <h2 className="text-4xl md:text-6xl font-serif font-bold uppercase tracking-tight">Univers des <br/> Services</h2>
@@ -163,9 +163,9 @@ export default function OnboardingPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent p-8 md:p-16 flex flex-col justify-end gap-6 md:gap-8">
                 <div className="flex gap-4 mb-2 md:mb-4">
-                  <Activity className="w-8 h-8 md:w-10 md:h-10 text-primary" />
-                  <Target className="w-8 h-8 md:w-10 md:h-10 text-primary/60" />
-                  <TrendingUp className="w-8 h-8 md:w-10 md:h-10 text-primary/40" />
+                  <Activity size={32} className="text-primary" />
+                  <Target size={32} className="text-primary/60" />
+                  <TrendingUp size={32} className="text-primary/40" />
                 </div>
                 <div className="space-y-2 md:space-y-4">
                   <h2 className="text-4xl md:text-6xl font-serif font-bold uppercase tracking-tight">Mon Suivi de <br/> Transformation</h2>
@@ -203,7 +203,7 @@ export default function OnboardingPage() {
                 <ul className="space-y-4 md:space-y-6">
                   {tier.features.map((feat, idx) => (
                     <li key={idx} className="flex items-center gap-4 text-zinc-400 text-sm italic font-light">
-                      <Star className="w-4 h-4 text-primary/60" /> {feat}
+                      <Star size={16} className="text-primary/60" /> {feat}
                     </li>
                   ))}
                 </ul>

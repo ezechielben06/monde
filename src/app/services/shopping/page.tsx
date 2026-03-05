@@ -62,7 +62,7 @@ export default function ShoppingPage() {
           </div>
           <Link href="/services/shopping/virtual-try-on" className="w-full md:w-auto">
             <Button size="lg" className="w-full md:w-auto bg-white text-black hover:bg-primary rounded-full px-12 md:px-16 h-20 md:h-24 font-bold uppercase tracking-[0.4em] md:tracking-[0.5em] shadow-3xl transition-all group border-none text-sm md:text-base">
-              <Camera size={20} className="mr-4 md:mr-6 group-hover:rotate-12 transition-transform" /> Essayage Virtuel IA
+              <Camera size={24} className="mr-4 md:mr-6 group-hover:rotate-12 transition-transform" /> Essayage Virtuel IA
             </Button>
           </Link>
         </header>
@@ -83,7 +83,7 @@ export default function ShoppingPage() {
           {CATEGORIES.map((cat) => (
             <TabsContent key={cat.id} value={cat.id} className="soft-reveal focus-visible:outline-none">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-24">
-                <div className="lg:col-span-4 space-y-12">
+                <div className="lg:col-span-4 xl:col-span-3 space-y-12">
                   {cat.sections.map((section, sidx) => (
                     <div key={sidx} className="space-y-6 md:space-y-8">
                       <h4 className="text-xl md:text-2xl font-bold uppercase tracking-widest border-l-2 border-primary pl-4 md:pl-6">{section.name}</h4>
@@ -98,7 +98,7 @@ export default function ShoppingPage() {
                   ))}
                 </div>
                 
-                <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12">
+                <div className="lg:col-span-8 xl:col-span-9 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-12">
                    {FEATURED_PRODUCTS.map((product) => (
                     <Card key={product.id} className="group relative overflow-hidden border-white/5 bg-zinc-900/20 rounded-[2rem] md:rounded-[3rem] transition-all hover:border-primary/40 shadow-2xl">
                       <div className="relative aspect-[3/4] overflow-hidden">
