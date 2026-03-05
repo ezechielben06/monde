@@ -113,10 +113,10 @@ export default function ShoppingPage() {
                         </div>
                         <div className="absolute inset-0 bg-black/60 flex items-center justify-center gap-4 md:gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                           <Button size="icon" className="rounded-full bg-white text-black hover:bg-primary w-14 h-14 md:w-20 md:h-20 shadow-2xl border-none active:scale-90 transition-transform">
-                            <ShoppingCart size={24} md:size={30} />
+                            <ShoppingCart size={24} />
                           </Button>
                           <Button size="icon" className="rounded-full bg-zinc-900/80 text-primary hover:bg-white hover:text-black w-14 h-14 md:w-20 md:h-20 border border-white/10 shadow-2xl active:scale-90 transition-transform">
-                            <Heart size={24} md:size={30} />
+                            <Heart size={24} />
                           </Button>
                         </div>
                       </div>

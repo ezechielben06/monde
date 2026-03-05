@@ -216,9 +216,9 @@ export default function OnboardingPage() {
         {/* Heritage Section */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-24 pt-20 md:pt-40 border-t border-white/5">
           {[
-            { title: "Confidentialité Diamond", icon: <ShieldCheck className="w-10 h-10 md:w-12 md:h-12" />, desc: "Vos données et votre parcours sont protégés par les protocoles de sécurité les plus stricts au monde." },
-            { title: "Accompagnement Élite", icon: <Heart className="w-10 h-10 md:w-12 md:h-12" />, desc: "Une synergie unique entre experts humains et intelligence artificielle de pointe pour votre réussite." },
-            { title: "Cercle Privé B-right", icon: <User className="w-10 h-10 md:w-12 md:h-12" />, desc: "Accès exclusif à une communauté de leaders partageant la même quête de perfection." }
+            { title: "Confidentialité Diamond", icon: <ShieldCheck size={48} />, desc: "Vos données et votre parcours sont protégés par les protocoles de sécurité les plus stricts au monde." },
+            { title: "Accompagnement Élite", icon: <Heart size={48} />, desc: "Une synergie unique entre experts humains et intelligence artificielle de pointe pour votre réussite." },
+            { title: "Cercle Privé B-right", icon: <User size={48} />, desc: "Accès exclusif à une communauté de leaders partageant la même quête de perfection." }
           ].map((item, i) => (
             <div key={i} className="text-center space-y-6 md:space-y-8 group">
               <div className="text-primary mx-auto opacity-30 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000">{item.icon}</div>
