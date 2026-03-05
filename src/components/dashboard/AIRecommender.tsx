@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Loader2, Sparkles, Utensils, Dumbbell, Brain, MessageSquare } from 'lucide-react';
+import { Loader2, Sparkles, Utensils, Dumbbell, Brain, MessageSquare, Crown } from 'lucide-react';
 import { aiWellnessRecommenderTool, type AiWellnessRecommenderToolOutput } from '@/ai/flows/ai-wellness-recommender-tool';
 
 export function AIRecommender() {
@@ -15,9 +15,9 @@ export function AIRecommender() {
     setLoading(true);
     try {
       const result = await aiWellnessRecommenderTool({
-        userPreferences: "Aime le yoga, régime végétarien, préfère les sessions du matin.",
-        userGoals: "Perdre 2kg, améliorer la flexibilité, réduire le stress au travail.",
-        recentProgress: "A complété 3 séances de yoga cette semaine. A bien mangé mais a eu du mal avec le sommeil."
+        userPreferences: "Aime le yoga de luxe, régime gastronomique végétarien, préfère les sessions privées du matin.",
+        userGoals: "Maintenir son prestige physique, flexibilité mentale, sérénité au sommet.",
+        recentProgress: "A complété ses rituels Élite. Performance exceptionnelle en méditation."
       });
       setData(result);
     } catch (error) {
@@ -33,76 +33,77 @@ export function AIRecommender() {
 
   const getIcon = (type: string) => {
     switch (type) {
-      case 'activity': return <Dumbbell className="text-blue-500" size={18} />;
-      case 'recipe': return <Utensils className="text-green-500" size={18} />;
-      case 'mindfulness_exercise': return <Brain className="text-purple-500" size={18} />;
-      case 'coaching_insight': return <MessageSquare className="text-amber-500" size={18} />;
-      default: return <Sparkles className="text-primary" size={18} />;
+      case 'activity': return <Dumbbell className="text-primary" size={20} />;
+      case 'recipe': return <Utensils className="text-primary" size={20} />;
+      case 'mindfulness_exercise': return <Brain className="text-primary" size={20} />;
+      case 'coaching_insight': return <MessageSquare className="text-primary" size={20} />;
+      default: return <Crown className="text-primary" size={20} />;
     }
   };
 
   return (
-    <Card className="border-none shadow-lg overflow-hidden bg-gradient-to-br from-white to-blue-50/50">
-      <CardHeader className="flex flex-row items-center justify-between pb-2">
+    <Card className="border border-primary/20 bg-zinc-900/50 rounded-[2.5rem] overflow-hidden shadow-2xl">
+      <CardHeader className="flex flex-row items-center justify-between pb-6 border-b border-white/5 p-10">
         <div className="space-y-1">
-          <CardTitle className="text-xl font-headline flex items-center gap-2">
-            <Sparkles className="text-accent animate-pulse" size={20} />
-            Conseils AI du Jour
+          <CardTitle className="text-3xl font-headline flex items-center gap-3 uppercase">
+            <Sparkles className="text-primary animate-pulse" size={24} />
+            Assistant Élite
           </CardTitle>
-          <CardDescription>Recommandations personnalisées pour votre transformation</CardDescription>
+          <CardDescription className="text-zinc-500 italic">Rituels exclusifs générés par l'IA B-right</CardDescription>
         </div>
         <Button 
           variant="outline" 
           size="sm" 
           onClick={getRecommendations} 
           disabled={loading}
-          className="rounded-full"
+          className="rounded-full border-primary/20 text-primary hover:bg-primary/10 px-6 uppercase font-bold text-[10px] tracking-widest"
         >
           {loading ? <Loader2 className="animate-spin" size={16} /> : "Actualiser"}
         </Button>
       </CardHeader>
-      <CardContent>
+      <CardContent className="p-10">
         {loading ? (
-          <div className="flex flex-col items-center justify-center py-12 space-y-4">
-            <Loader2 className="animate-spin text-primary" size={40} />
-            <p className="text-muted-foreground animate-pulse">Analyse de vos progrès en cours...</p>
+          <div className="flex flex-col items-center justify-center py-20 space-y-6">
+            <Loader2 className="animate-spin text-primary" size={48} />
+            <p className="text-zinc-500 font-bold uppercase tracking-[0.3em] text-[10px]">Calcul de votre Excellence...</p>
           </div>
         ) : data ? (
-          <div className="space-y-4">
+          <div className="space-y-6">
             {data.recommendations.map((rec, i) => (
-              <div key={i} className="flex gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-blue-100/50">
-                <div className="mt-1">
+              <div key={i} className="flex gap-6 p-6 bg-zinc-800/30 rounded-3xl border border-white/5 hover:border-primary/20 transition-all group">
+                <div className="mt-1 p-3 bg-zinc-900 rounded-2xl group-hover:scale-110 transition-transform">
                   {getIcon(rec.type)}
                 </div>
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2">
-                    <h4 className="font-semibold text-sm">{rec.title}</h4>
-                    <Badge variant="secondary" className="text-[10px] capitalize">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3">
+                    <h4 className="font-bold text-lg uppercase tracking-tight">{rec.title}</h4>
+                    <Badge variant="secondary" className="text-[9px] uppercase bg-primary/10 text-primary border-none font-bold px-3">
                       {rec.type.replace('_', ' ')}
                     </Badge>
                   </div>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-zinc-500 leading-relaxed font-medium italic">
                     {rec.description}
                   </p>
                   {rec.details && (
-                    <p className="text-[11px] text-primary/80 bg-primary/5 p-2 rounded-md mt-2 italic">
+                    <div className="text-[11px] text-zinc-400 bg-black/40 p-4 rounded-xl mt-4 border-l-2 border-primary">
+                      <span className="font-bold text-primary uppercase block mb-1">Protocole :</span>
                       {rec.details}
-                    </p>
+                    </div>
                   )}
                 </div>
               </div>
             ))}
             {data.overallInsight && (
-              <div className="mt-4 p-4 bg-accent/5 border border-accent/10 rounded-xl">
-                <p className="text-sm font-medium text-accent italic">
+              <div className="mt-8 p-8 bg-primary/5 border border-primary/10 rounded-[2rem] text-center">
+                <p className="text-lg font-headline text-primary italic leading-relaxed">
                   "{data.overallInsight}"
                 </p>
               </div>
             )}
           </div>
         ) : (
-          <div className="text-center py-8">
-            <p className="text-muted-foreground">Appuyez sur actualiser pour voir vos conseils.</p>
+          <div className="text-center py-12">
+            <p className="text-zinc-600 font-bold uppercase text-xs tracking-widest">Initialisez votre assistant de prestige.</p>
           </div>
         )}
       </CardContent>
