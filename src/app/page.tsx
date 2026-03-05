@@ -1,3 +1,4 @@
+
 import { Navbar } from '@/components/layout/Navbar';
 import { StatCard } from '@/components/dashboard/StatCard';
 import { AIRecommender } from '@/components/dashboard/AIRecommender';
@@ -27,6 +28,7 @@ export default function Home() {
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-1000"
               priority
+              data-ai-hint="wellness interior"
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent flex flex-col justify-center px-12 text-white">
@@ -86,9 +88,9 @@ export default function Home() {
 
             <Card className="border-none shadow-sm rounded-[2rem] overflow-hidden bg-white">
               <CardHeader className="flex flex-row items-center justify-between">
-                <CardTitle className="text-2xl font-headline">Planning B-right</CardTitle>
+                <CardTitle className="text-2xl font-headline font-bold">Planning B-right</CardTitle>
                 <Link href="/booking">
-                  <Button variant="ghost" size="sm" className="text-primary gap-2 hover:bg-primary/5">
+                  <Button variant="ghost" size="sm" className="text-primary gap-2 hover:bg-primary/5 font-bold">
                     Gérer <ArrowRight size={16} />
                   </Button>
                 </Link>
@@ -143,7 +145,7 @@ export default function Home() {
 
             <Card className="border-none shadow-sm rounded-[2rem] bg-white">
               <CardHeader>
-                <CardTitle className="text-xl font-headline">Cercle B-right</CardTitle>
+                <CardTitle className="text-xl font-headline font-bold">Cercle B-right</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {[
@@ -164,7 +166,7 @@ export default function Home() {
                     </div>
                   </div>
                 ))}
-                <Button variant="outline" className="w-full rounded-2xl border-slate-100 text-muted-foreground hover:bg-slate-50 transition-colors">
+                <Button variant="outline" className="w-full rounded-2xl border-slate-100 text-muted-foreground hover:bg-slate-50 transition-colors font-bold">
                   Explorer le feed
                 </Button>
               </CardContent>
