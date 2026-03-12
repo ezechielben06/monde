@@ -1,9 +1,12 @@
 import type {Metadata} from 'next';
 import './globals.css';
+import { Navbar } from '@/components/layout/Navbar';
+import { TopHeader } from '@/components/layout/TopHeader';
 
 export const metadata: Metadata = {
   title: 'B-right | L’Excellence du Bien-être',
   description: 'Plateforme exclusive de transformation globale : fitness, beauté, coaching et nutrition de prestige.',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
 };
 
 export default function RootLayout({
@@ -32,8 +35,12 @@ export default function RootLayout({
           `
         }} />
       </head>
-      <body className="font-body antialiased overflow-x-hidden min-h-screen bg-background text-foreground selection:bg-primary/30">
-        {children}
+      <body className="font-body antialiased min-h-screen bg-background text-foreground selection:bg-primary/30">
+        <TopHeader />
+        <div className="pt-20 pb-28 md:pt-24 md:pb-0">
+          {children}
+        </div>
+        <Navbar />
       </body>
     </html>
   );
