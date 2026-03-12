@@ -17,12 +17,45 @@ import {
   Target, 
   TrendingUp, 
   Utensils, 
-  ShoppingBag 
+  ShoppingBag,
+  Check,
+  Zap,
+  Star
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
+
+const SUBSCRIPTIONS = [
+  {
+    id: 'essential',
+    title: 'Essentiel',
+    price: '25,000 FCFA',
+    desc: 'L’initiation au monde de l’excellence.',
+    features: ['Accès Salle Sport VIP', 'Analyse IA Standard', 'Bibliothèque Savoir', 'Support 24/7'],
+    icon: <Zap size={24} />,
+    popular: false
+  },
+  {
+    id: 'privilege',
+    title: 'Privilège',
+    price: '45,000 FCFA',
+    desc: 'Le choix de l’élite pour une transformation totale.',
+    features: ['Conciergerie Dédiée', 'Analyse IA Avancée', 'Planning Nutritionnel', '1 Soin Beauté / mois'],
+    icon: <Crown size={24} />,
+    popular: true
+  },
+  {
+    id: 'imperial',
+    title: 'Impérial',
+    price: '95,000 FCFA',
+    desc: 'L’héritage ultime. Rien n’est laissé au hasard.',
+    features: ['Accès Clubs Privés', 'Coaching Privé Illimité', 'Garde-robe IA Mesure', 'Soins Illimités'],
+    icon: <Gem size={24} />,
+    popular: false
+  }
+];
 
 export default function OnboardingPage() {
   const [screen, setScreen] = useState<'splash' | 'language' | 'currency' | 'main'>('splash');
@@ -190,6 +223,70 @@ export default function OnboardingPage() {
               </div>
             </div>
           </Link>
+        </section>
+
+        {/* Subscription Section */}
+        <section className="space-y-16 md:space-y-24">
+          <div className="text-center space-y-6">
+            <Badge variant="outline" className="border-primary/40 text-primary px-8 py-2 rounded-full uppercase text-[10px] tracking-[0.5em] font-bold">Cercle des Membres</Badge>
+            <h2 className="text-4xl md:text-8xl font-serif font-bold luxury-gold-gradient leading-tight">L'Élite de la <br/> Transformation.</h2>
+            <p className="text-muted-foreground text-lg md:text-2xl font-light italic max-w-3xl mx-auto">Choisissez le niveau d'accompagnement digne de votre héritage personnel.</p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
+            {SUBSCRIPTIONS.map((plan) => (
+              <div 
+                key={plan.id}
+                className={cn(
+                  "relative p-10 md:p-16 rounded-[3rem] border transition-all duration-700 shadow-2xl overflow-hidden group flex flex-col",
+                  plan.popular 
+                    ? "bg-primary/5 border-primary/40 scale-105 z-10" 
+                    : "bg-card/40 border-border hover:border-primary/30"
+                )}
+              >
+                {plan.popular && (
+                  <div className="absolute top-8 right-8">
+                    <Badge className="bg-primary text-primary-foreground font-bold uppercase text-[8px] tracking-widest px-4 py-1.5 rounded-full">Plus Populaire</Badge>
+                  </div>
+                )}
+                
+                <div className="mb-10 text-primary opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                  {plan.icon}
+                </div>
+
+                <div className="space-y-4 mb-10 flex-grow">
+                  <h3 className="text-3xl md:text-4xl font-serif font-bold uppercase tracking-tight">{plan.title}</h3>
+                  <p className="text-muted-foreground font-light italic text-sm">{plan.desc}</p>
+                  <div className="pt-6">
+                    <span className="text-4xl md:text-5xl font-bold font-headline luxury-gold-gradient">{plan.price}</span>
+                    <span className="text-muted-foreground text-xs uppercase tracking-widest ml-3">/ mois</span>
+                  </div>
+                </div>
+
+                <div className="space-y-6 mb-12">
+                  {plan.features.map((feature, i) => (
+                    <div key={i} className="flex items-center gap-4 text-sm md:text-base font-light italic text-muted-foreground group-hover:text-foreground transition-colors">
+                      <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                        <Check size={14} />
+                      </div>
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+
+                <Button 
+                  className={cn(
+                    "w-full h-16 md:h-20 rounded-full font-bold uppercase tracking-widest transition-all",
+                    plan.popular 
+                      ? "bg-primary text-primary-foreground hover:bg-foreground hover:text-background" 
+                      : "bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground"
+                  )}
+                >
+                  Acquérir le statut <ArrowRight size={18} className="ml-4" />
+                </Button>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 pt-16 border-t border-border">
