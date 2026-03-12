@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -30,15 +29,19 @@ export default function OnboardingPage() {
   const [screen, setScreen] = useState<'splash' | 'language' | 'currency' | 'main'>('splash');
   const [language, setLanguage] = useState('Français');
   const [currency, setCurrency] = useState('Euro (EUR)');
+  const [mounted, setMounted] = useState(false);
 
-  const defaultPlaceholder = "https://picsum.photos/seed/placeholder/800/1000";
+  const defaultPlaceholder = "https://picsum.photos/seed/placeholder-luxury/1200/800";
 
   useEffect(() => {
+    setMounted(true);
     if (screen === 'splash') {
       const timer = setTimeout(() => setScreen('language'), 3000);
       return () => clearTimeout(timer);
     }
   }, [screen]);
+
+  if (!mounted) return null;
 
   if (screen === 'splash') {
     return (

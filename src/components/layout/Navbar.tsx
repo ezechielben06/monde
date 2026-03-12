@@ -10,8 +10,10 @@ export function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const [isDark, setIsDark] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const theme = localStorage.getItem('theme') || 'dark';
     setIsDark(theme === 'dark');
     document.documentElement.classList.toggle('dark', theme === 'dark');
@@ -23,6 +25,8 @@ export function Navbar() {
     localStorage.setItem('theme', newTheme);
     document.documentElement.classList.toggle('dark', newTheme === 'dark');
   };
+
+  if (!mounted) return null;
 
   const hideOn = ['/login'];
   if (hideOn.includes(pathname)) return null;
